@@ -13,9 +13,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Phosphor Icons CDN for slick automotive icons -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  <!-- Custom CSS -->
+  <!-- Custom Production Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/editor.css">
   
   <script>
     tailwind.config = {
@@ -23,7 +22,7 @@
         extend: {
           colors: {
             brandDark: '#090D16',
-            brandCard: '#111726',
+            brandCard: '#0E1526',
             brandBlue: '#2563EB',
             brandGold: '#F59E0B'
           }
@@ -34,58 +33,63 @@
 </head>
 <body class="bg-[#090D16] text-slate-100 antialiased selection:bg-blue-600 selection:text-white">
 
-  <!-- TOP FLASH SALE TICKER BAR -->
-  <div id="flash-sale-bar" class="bg-gradient-to-r from-blue-700 via-indigo-600 to-blue-700 text-white text-xs sm:text-sm py-2 px-4 shadow-md sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1 text-center font-medium">
-      <div class="flex items-center gap-2">
-        <span class="bg-amber-400 text-slate-950 text-xs font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider animate-pulse">Flash Sale</span>
-        <span data-bind="flashSaleText" data-editable="true">Ưu đãi hôm nay: <strong>Miễn phí vận chuyển toàn quốc</strong> cho Bộ Full 4 rèm!</span>
+  <!-- TOP FLASH SALE TICKER BAR (COMPACT & SLEEK) -->
+  <div id="flash-sale-bar" class="bg-gradient-to-r from-blue-700 via-indigo-600 to-blue-700 text-white py-1.5 sm:py-2 px-3 sm:px-4 shadow-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto flex items-center justify-between gap-2 text-xs sm:text-sm font-medium">
+      <!-- Left Notice -->
+      <div class="flex items-center gap-1.5 sm:gap-2 truncate">
+        <span class="bg-amber-400 text-slate-950 text-[10px] sm:text-xs font-black px-2 py-0.5 rounded-full uppercase tracking-wider shrink-0 animate-pulse">Flash Sale</span>
+        <span class="truncate">
+          <strong class="text-amber-200">Freeship toàn quốc</strong> cho Combo 4 rèm!
+        </span>
       </div>
-      <div class="flex items-center gap-2 text-xs font-semibold">
-        <span class="text-amber-200">Thời gian còn lại:</span>
+      <!-- Right Countdown Timer -->
+      <div class="flex items-center gap-1 sm:gap-2 text-[11px] sm:text-xs font-bold shrink-0">
+        <span class="hidden md:inline text-amber-200">Kết thúc sau:</span>
         <div class="flex items-center gap-1 font-mono">
-          <span id="cd-hours" class="bg-black/40 px-1.5 py-0.5 rounded">08</span>:
-          <span id="cd-mins" class="bg-black/40 px-1.5 py-0.5 rounded">45</span>:
-          <span id="cd-secs" class="bg-black/40 px-1.5 py-0.5 rounded">20</span>
+          <span id="cd-hours" class="bg-black/50 px-1.5 py-0.5 rounded text-amber-300">08</span>:
+          <span id="cd-mins" class="bg-black/50 px-1.5 py-0.5 rounded text-amber-300">45</span>:
+          <span id="cd-secs" class="bg-black/50 px-1.5 py-0.5 rounded text-amber-300">20</span>
         </div>
       </div>
     </div>
   </div>
 
   <!-- NAVIGATION -->
-  <header class="border-b border-slate-800/80 bg-[#090D16]/95 backdrop-blur-md sticky top-[37px] z-40">
-    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+  <header class="border-b border-slate-800/80 bg-[#090D16]/95 backdrop-blur-md sticky top-[33px] sm:top-[37px] z-40">
+    <div class="max-w-6xl mx-auto px-4 h-14 sm:h-16 flex items-center justify-between">
+      <!-- Logo -->
       <a href="#" class="flex items-center gap-2.5">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-800 flex items-center justify-center shadow-lg shadow-blue-500/20 border border-blue-400/30">
-          <i class="ph ph-shield-check text-2xl text-amber-300"></i>
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-800 flex items-center justify-center shadow-lg shadow-blue-500/20 border border-blue-400/30">
+          <i class="ph ph-shield-check text-xl sm:text-2xl text-amber-300"></i>
         </div>
         <div>
-          <span class="text-xl font-black tracking-tight text-white font-heading" data-bind="brandName" data-editable="true">SOSO<span class="text-blue-500">.</span>AUTO</span>
-          <span class="block text-[10px] uppercase font-bold tracking-widest text-slate-400" data-bind="brandSub" data-editable="true">Phụ Kiện Ô Tô Thông Minh</span>
+          <span class="text-lg sm:text-xl font-black tracking-tight text-white font-heading">SOSO<span class="text-blue-500">.</span>AUTO</span>
+          <span class="hidden sm:block text-[10px] uppercase font-bold tracking-widest text-slate-400">Phụ Kiện Ô Tô Thông Minh</span>
         </div>
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
-        <a href="#tinh-nang" class="hover:text-blue-400 transition-colors">Tính năng nổi bật</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-300">
+        <a href="#tinh-nang" class="hover:text-blue-400 transition-colors">Tính năng</a>
         <a href="#video-thuc-te" class="hover:text-blue-400 transition-colors">Video thực tế</a>
         <a href="#dong-xe" class="hover:text-blue-400 transition-colors">Dòng xe hỗ trợ</a>
         <a href="#bang-gia" class="hover:text-blue-400 transition-colors">Bảng giá & Combo</a>
-        <a href="#feedback" class="hover:text-blue-400 transition-colors">Đánh giá khách hàng</a>
+        <a href="#feedback" class="hover:text-blue-400 transition-colors">Đánh giá</a>
       </nav>
 
       <!-- Quick Contact Buttons & Mobile Hamburger -->
       <div class="flex items-center gap-2">
-        <a href="tel:0967103928" class="hidden sm:inline-flex items-center gap-2 text-xs font-bold text-slate-200 bg-slate-800/80 hover:bg-slate-700 border border-slate-700 px-3.5 py-2 rounded-xl transition-all">
-          <i class="ph ph-phone-call text-blue-400 text-base"></i>
-          <span data-bind="hotline" data-editable="true">0967.103.928</span>
+        <a href="tel:0967103928" class="hidden sm:inline-flex items-center gap-2 text-xs font-bold text-slate-200 bg-slate-800/80 hover:bg-slate-700 border border-slate-700 px-3 py-2 rounded-xl transition-all">
+          <i class="ph ph-phone-call text-emerald-400 text-sm"></i>
+          <span>0967.103.928</span>
         </a>
-        <button type="button" class="open-quick-order-btn btn-primary-glow text-white text-xs sm:text-sm font-bold px-3.5 sm:px-5 py-2.5 rounded-xl shadow-lg flex items-center gap-1.5">
+        <button type="button" class="open-quick-order-btn btn-primary-glow text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl shadow-lg flex items-center gap-1.5">
           <span>Đặt hàng</span>
           <i class="ph ph-shopping-bag font-bold"></i>
         </button>
         <!-- Mobile Hamburger Toggle -->
-        <button id="mobile-menu-toggle" type="button" class="md:hidden p-2.5 rounded-xl bg-slate-800 text-slate-200 border border-slate-700 text-xl flex items-center justify-center" aria-label="Mở menu">
+        <button id="mobile-menu-toggle" type="button" class="md:hidden p-2 rounded-xl bg-slate-800 text-slate-200 border border-slate-700 text-xl flex items-center justify-center focus:outline-none" aria-label="Mở menu">
           <i class="ph ph-list"></i>
         </button>
       </div>
@@ -93,144 +97,143 @@
   </header>
 
   <!-- MOBILE SLIDE-OUT DRAWER MENU -->
-  <div id="mobile-drawer-backdrop" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden transition-opacity"></div>
-  <aside id="mobile-drawer" class="fixed top-0 right-0 bottom-0 w-[280px] bg-[#111726] border-l border-slate-800 p-6 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between">
-    <div class="space-y-6">
-      <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+  <div id="mobile-drawer-backdrop" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  <aside id="mobile-drawer" class="fixed top-0 right-0 bottom-0 w-[290px] bg-[#0E1526] border-l border-slate-800 p-5 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between shadow-2xl">
+    <div class="space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
         <div class="flex items-center gap-2">
           <i class="ph ph-shield-check text-2xl text-blue-400"></i>
-          <span class="font-bold text-white text-base" data-bind="brandName">SOSO. AUTO</span>
+          <span class="font-bold text-white text-base">SOSO. AUTO</span>
         </div>
-        <button id="close-drawer-btn" class="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white">
+        <button id="close-drawer-btn" class="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white" aria-label="Đóng menu">
           <i class="ph ph-x text-lg"></i>
         </button>
       </div>
 
-      <nav class="flex flex-col space-y-3 text-sm font-semibold text-slate-300">
-        <a href="#tinh-nang" class="mobile-drawer-link py-2 px-3 rounded-lg hover:bg-slate-800 hover:text-blue-400 transition-colors flex items-center gap-3">
+      <nav class="flex flex-col space-y-2 text-sm font-semibold text-slate-300">
+        <a href="#tinh-nang" class="mobile-drawer-link py-2.5 px-3 rounded-xl hover:bg-slate-800 hover:text-blue-400 transition-colors flex items-center gap-3">
           <i class="ph ph-star text-lg text-blue-400"></i>
           <span>Tính năng nổi bật</span>
         </a>
-        <a href="#video-thuc-te" class="mobile-drawer-link py-2 px-3 rounded-lg hover:bg-slate-800 hover:text-blue-400 transition-colors flex items-center gap-3">
+        <a href="#video-thuc-te" class="mobile-drawer-link py-2.5 px-3 rounded-xl hover:bg-slate-800 hover:text-blue-400 transition-colors flex items-center gap-3">
           <i class="ph ph-play-circle text-lg text-amber-400"></i>
-          <span>Video thực tế trên xe</span>
+          <span>Video trên xe thực tế</span>
         </a>
-        <a href="#dong-xe" class="mobile-drawer-link py-2 px-3 rounded-lg hover:bg-slate-800 hover:text-blue-400 transition-colors flex items-center gap-3">
+        <a href="#so-sanh" class="mobile-drawer-link py-2.5 px-3 rounded-xl hover:bg-slate-800 hover:text-blue-400 transition-colors flex items-center gap-3">
+          <i class="ph ph-scales text-lg text-rose-400"></i>
+          <span>So sánh với rèm thường</span>
+        </a>
+        <a href="#dong-xe" class="mobile-drawer-link py-2.5 px-3 rounded-xl hover:bg-slate-800 hover:text-blue-400 transition-colors flex items-center gap-3">
           <i class="ph ph-car text-lg text-emerald-400"></i>
           <span>Dòng xe hỗ trợ</span>
         </a>
-        <a href="#bang-gia" class="mobile-drawer-link py-2 px-3 rounded-lg hover:bg-slate-800 hover:text-blue-400 transition-colors flex items-center gap-3">
+        <a href="#bang-gia" class="mobile-drawer-link py-2.5 px-3 rounded-xl hover:bg-slate-800 hover:text-blue-400 transition-colors flex items-center gap-3">
           <i class="ph ph-tag text-lg text-purple-400"></i>
           <span>Bảng giá & Combo</span>
         </a>
-        <a href="#feedback" class="mobile-drawer-link py-2 px-3 rounded-lg hover:bg-slate-800 hover:text-blue-400 transition-colors flex items-center gap-3">
+        <a href="#feedback" class="mobile-drawer-link py-2.5 px-3 rounded-xl hover:bg-slate-800 hover:text-blue-400 transition-colors flex items-center gap-3">
           <i class="ph ph-chat-circle-dots text-lg text-cyan-400"></i>
           <span>Đánh giá khách hàng</span>
         </a>
-        <a href="#dat-hang" class="mobile-drawer-link py-2 px-3 rounded-lg hover:bg-slate-800 hover:text-blue-400 transition-colors flex items-center gap-3">
-          <i class="ph ph-shopping-bag text-lg text-rose-400"></i>
-          <span>Đặt mua ngay</span>
+        <a href="#dat-hang" class="mobile-drawer-link py-2.5 px-3 rounded-xl hover:bg-slate-800 hover:text-blue-400 transition-colors flex items-center gap-3">
+          <i class="ph ph-shopping-bag text-lg text-amber-400"></i>
+          <span>Đặt mua ngay (Không cọc)</span>
         </a>
       </nav>
     </div>
 
-    <div class="space-y-3 pt-6 border-t border-slate-800 text-xs">
-      <a href="tel:0967103928" class="w-full py-3 rounded-xl bg-emerald-600 text-white font-bold flex items-center justify-center gap-2">
+    <div class="space-y-2.5 pt-4 border-t border-slate-800 text-xs">
+      <a href="tel:0967103928" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center justify-center gap-2 transition-all">
         <i class="ph ph-phone-call text-base"></i>
-        <span>Gọi: <span data-bind="hotline">0967.103.928</span></span>
+        <span>Hotline: 0967.103.928</span>
       </a>
-      <a href="https://zalo.me/0967103928" target="_blank" class="w-full py-3 rounded-xl bg-blue-600 text-white font-bold flex items-center justify-center gap-2">
+      <a href="https://zalo.me/0967103928" target="_blank" class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold flex items-center justify-center gap-2 transition-all">
         <i class="ph ph-chat-circle text-base"></i>
-        <span>Nhắn Zalo tư vấn</span>
+        <span>Nhắn Zalo tư vấn 24/7</span>
       </a>
     </div>
   </aside>
 
-  <!-- HERO SECTION -->
-  <section class="relative pt-8 pb-16 md:pt-16 md:pb-24 overflow-hidden">
+  <!-- HERO SECTION (CRO OPTIMIZED FOR MOBILE & DESKTOP) -->
+  <section class="relative pt-6 pb-14 md:pt-16 md:pb-24 overflow-hidden">
     <!-- Glow Background Accents -->
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-blue-600/15 rounded-full blur-[130px] pointer-events-none"></div>
-    <div class="absolute bottom-10 right-10 w-[300px] h-[300px] bg-amber-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-blue-600/15 rounded-full blur-[130px] pointer-events-none"></div>
+    <div class="absolute bottom-10 right-10 w-[280px] h-[280px] bg-amber-500/10 rounded-full blur-[100px] pointer-events-none"></div>
 
     <div class="max-w-6xl mx-auto px-4 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
         
         <!-- Left: Copy & Value Proposition -->
-        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
           
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-950/60 border border-blue-500/30 text-blue-300 text-xs font-semibold" data-editable="true">
+          <!-- Eyebrow Pill -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-950/70 border border-blue-500/30 text-blue-300 text-xs font-semibold">
             <span class="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span>
-            <span>Thế hệ rèm tự động thông minh 2026</span>
+            <span>⭐ THẾ HỆ RÈM THÔNG MINH 2026</span>
           </div>
 
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight font-heading" data-editable="true">
+          <!-- Main Title -->
+          <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight font-heading">
             Rèm Che Nắng Ô Tô Thông Minh <br class="hidden sm:inline">
-            <span class="blue-gradient-text">Tự Động Nâng Hạ</span> Theo Kính Xe
+            <span class="blue-gradient-text">Tự Động Nâng Hạ</span> Chuẩn Form Xe
           </h1>
 
-          <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0" data-editable="true">
-            Tạm biệt nỗi lo rèm nam châm rơi rụng, vướng víu! <strong>SOSO. AUTO</strong> may đo chính xác theo form từng dòng xe, tự động cuộn gọn khi hạ kính và kéo căng khi nâng kính. Cản 95% tia UV, không che gương hậu.
+          <!-- Subtitle -->
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            Tạm biệt nỗi lo rèm nam châm rơi rụng, vướng víu! <strong>SOSO AUTO</strong> tự động cuốn thả đồng bộ theo kính xe, cản 95% tia UV, vát góc không che gương hậu. May đo chuẩn xác cho hơn 150+ dòng xe tại Việt Nam.
           </p>
 
-          <!-- Core Value Micro-list -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-left">
-            <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-900/60 border border-slate-800">
-              <i class="ph ph-check-circle text-blue-400 text-xl shrink-0"></i>
-              <span class="text-xs sm:text-sm font-medium text-slate-200">Tự động nâng hạ</span>
+          <!-- 4 Core Benefit Chips (Mobile 2x2 grid) -->
+          <div class="grid grid-cols-2 gap-2.5 sm:gap-3 pt-1 text-left">
+            <div class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900/70 border border-slate-800">
+              <i class="ph ph-arrows-down-up text-blue-400 text-lg sm:text-xl shrink-0"></i>
+              <span class="text-xs sm:text-sm font-semibold text-slate-200">Tự động nâng hạ</span>
             </div>
-            <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-900/60 border border-slate-800">
-              <i class="ph ph-sun text-amber-400 text-xl shrink-0"></i>
-              <span class="text-xs sm:text-sm font-medium text-slate-200">Cản 95% tia UV</span>
+            <div class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900/70 border border-slate-800">
+              <i class="ph ph-sun text-amber-400 text-lg sm:text-xl shrink-0"></i>
+              <span class="text-xs sm:text-sm font-semibold text-slate-200">Cản 95% tia UV</span>
             </div>
-            <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-900/60 border border-slate-800">
-              <i class="ph ph-eye text-emerald-400 text-xl shrink-0"></i>
-              <span class="text-xs sm:text-sm font-medium text-slate-200">Không che gương hậu</span>
+            <div class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900/70 border border-slate-800">
+              <i class="ph ph-ruler text-blue-400 text-lg sm:text-xl shrink-0"></i>
+              <span class="text-xs sm:text-sm font-semibold text-slate-200">May chuẩn form xe</span>
             </div>
-            <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-900/60 border border-slate-800">
-              <i class="ph ph-ruler text-blue-400 text-xl shrink-0"></i>
-              <span class="text-xs sm:text-sm font-medium text-slate-200">May đo chuẩn form</span>
-            </div>
-            <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-900/60 border border-slate-800">
-              <i class="ph ph-wrench text-amber-400 text-xl shrink-0"></i>
-              <span class="text-xs sm:text-sm font-medium text-slate-200">Tự lắp trong 10 phút</span>
-            </div>
-            <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-900/60 border border-slate-800">
-              <i class="ph ph-truck text-emerald-400 text-xl shrink-0"></i>
-              <span class="text-xs sm:text-sm font-medium text-slate-200">Không cọc - Thử hàng</span>
+            <div class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900/70 border border-slate-800">
+              <i class="ph ph-eye text-emerald-400 text-lg sm:text-xl shrink-0"></i>
+              <span class="text-xs sm:text-sm font-semibold text-slate-200">Không che gương hậu</span>
             </div>
           </div>
 
-          <!-- Hero CTA buttons -->
-          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-            <a href="#dat-hang" class="btn-primary-glow w-full sm:w-auto text-white font-bold text-base px-8 py-4 rounded-xl shadow-xl flex items-center justify-center gap-3">
-              <i class="ph ph-shopping-bag text-xl"></i>
-              <span>ĐẶT MUA NGAY - KHÔNG CẦN CỌC</span>
+          <!-- Hero CTAs -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+            <a href="#dat-hang" class="btn-primary-glow pulse-cta w-full sm:w-auto text-white font-extrabold text-sm sm:text-base px-7 py-3.5 sm:py-4 rounded-xl shadow-xl flex items-center justify-center gap-2">
+              <i class="ph ph-shopping-bag text-lg sm:text-xl"></i>
+              <span>ĐẶT MUA NGAY (KHÔNG CỌC)</span>
             </a>
-            <a href="#video-thuc-te" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold text-sm flex items-center justify-center gap-2 transition-all">
-              <i class="ph ph-play-circle text-xl text-blue-400"></i>
-              <span>Xem Video Vận Hành</span>
+            <a href="https://zalo.me/0967103928" target="_blank" class="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-xl bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-200 font-bold text-sm flex items-center justify-center gap-2 transition-all">
+              <i class="ph ph-chat-circle text-lg text-blue-400"></i>
+              <span>TƯ VẤN ZALO (0967.103.928)</span>
             </a>
           </div>
 
           <!-- Social Proof Tag -->
-          <div class="flex items-center justify-center lg:justify-start gap-3 pt-2 text-xs text-slate-400">
-            <div class="flex -space-x-2">
-              <span class="w-7 h-7 rounded-full bg-slate-700 border-2 border-slate-900 flex items-center justify-center text-[10px] font-bold text-white">4.9★</span>
-              <span class="w-7 h-7 rounded-full bg-blue-600 border-2 border-slate-900 flex items-center justify-center text-[10px] font-bold text-white"><i class="ph ph-check"></i></span>
+          <div class="flex items-center justify-center lg:justify-start gap-2.5 pt-1 text-xs text-slate-400">
+            <div class="flex items-center text-amber-400 font-bold">
+              <span>★★★★★</span>
+              <span class="ml-1 text-slate-300 font-extrabold">4.9/5</span>
             </div>
-            <span>Hơn <strong>3.800+</strong> bộ rèm đã lắp đặt cho các dòng xe trên toàn quốc</span>
+            <span>•</span>
+            <span>Hơn <strong>3.800+</strong> bộ đã bàn giao • Kiểm tra thử hàng trước khi thanh toán</span>
           </div>
 
         </div>
 
         <!-- Right: Real Product Video Showcase -->
         <div class="lg:col-span-5">
-          <div class="relative rounded-2xl overflow-hidden glass-panel border border-slate-700/80 shadow-2xl p-2 bg-gradient-to-b from-slate-800/40 to-slate-900/60">
+          <div class="relative rounded-2xl overflow-hidden glass-panel border border-blue-500/30 shadow-2xl p-2 bg-gradient-to-b from-slate-800/50 to-slate-900/80">
             
-            <div class="relative rounded-xl overflow-hidden aspect-[9/14] sm:aspect-[4/5] bg-black">
+            <div class="relative rounded-xl overflow-hidden aspect-[9/13] sm:aspect-[4/5] bg-black">
               <video 
                 id="hero-video"
-                data-media-id="hero-video"
                 src="assets/videos/demo-auto.mp4" 
                 autoplay 
                 loop 
@@ -239,17 +242,28 @@
                 class="w-full h-full object-cover">
               </video>
 
+              <!-- Video Overlay Badge -->
               <div class="video-overlay-badge text-white">
                 <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
                 <span>Video thực tế: Tự động nâng hạ</span>
               </div>
 
-              <div class="absolute bottom-4 left-4 right-4 bg-slate-950/85 backdrop-blur-md p-3 rounded-xl border border-white/10 text-xs">
+              <!-- Audio Toggle Button -->
+              <button 
+                id="hero-sound-toggle" 
+                type="button" 
+                class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white flex items-center justify-center text-sm z-10 hover:bg-black/80" 
+                title="Bật/Tắt âm thanh">
+                <i class="ph ph-speaker-slash text-base"></i>
+              </button>
+
+              <!-- Video Bottom Information Chip -->
+              <div class="absolute bottom-3 left-3 right-3 bg-slate-950/90 backdrop-blur-md p-2.5 rounded-xl border border-white/10 text-xs">
                 <div class="flex justify-between items-center text-slate-300">
                   <span class="font-bold text-white flex items-center gap-1.5">
-                    <i class="ph ph-car text-blue-400 text-base"></i> Form riêng từng xe
+                    <i class="ph ph-car text-blue-400 text-base"></i> Chuẩn form theo xe
                   </span>
-                  <span class="text-amber-400 font-extrabold text-sm">Chỉ từ 629K</span>
+                  <span class="text-amber-400 font-extrabold text-xs sm:text-sm">Chỉ từ 629K • Freeship Combo</span>
                 </div>
               </div>
             </div>
@@ -261,168 +275,168 @@
     </div>
   </section>
 
-  <!-- PAIN AGITATION: VẤN ĐỀ RÈM CŨ -->
-  <section id="pain-section" class="py-14 bg-slate-950/60 border-y border-slate-800/80">
+  <!-- PAIN AGITATION: 3 NỖI ÁM ẢNH CỦA RÈM CŨ -->
+  <section id="pain-section" class="py-12 sm:py-16 bg-slate-950/70 border-y border-slate-800/80">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center max-w-2xl mx-auto mb-10">
-        <h2 class="text-xs uppercase font-extrabold tracking-widest text-amber-400 mb-2" data-editable="true">Bạn có đang gặp phiền toái?</h2>
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-white font-heading" data-editable="true">Nỗi Ám Ảnh Khi Dùng Rèm Che Nắng Truyền Thống</h3>
+      <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+        <h2 class="text-xs uppercase font-extrabold tracking-widest text-amber-400 mb-1.5">Bạn có đang gặp phiền toái?</h2>
+        <h3 class="text-xl sm:text-3xl font-extrabold text-white font-heading">3 Nỗi Ám Ảnh Khi Dùng Rèm Che Nắng Truyền Thống</h3>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
         <!-- Pain 1 -->
-        <div class="glass-panel p-6 border-red-500/20 bg-gradient-to-b from-red-950/10 to-slate-900/60">
-          <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 text-2xl mb-4">
+        <div class="glass-panel p-5 sm:p-6 border-red-500/25 bg-gradient-to-b from-red-950/15 to-slate-900/60">
+          <div class="w-11 h-11 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 text-2xl mb-3.5">
             <i class="ph ph-hand-palm"></i>
           </div>
-          <h4 class="text-lg font-bold text-white mb-2">Bất tiện mỗi khi hạ kính</h4>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Rèm nam châm hay nút hút chân không bắt buộc phải gỡ ra bằng tay mỗi lần hạ kính lấy vé cầu đường, kiểm tra an ninh hay hóng gió. Rất dễ rơi rớt và bẩn xe.
+          <h4 class="text-base sm:text-lg font-bold text-white mb-2">Bất tiện mỗi khi hạ kính</h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Rèm nam châm hay nút hút chân không bắt buộc phải gỡ ra bằng tay mỗi lần hạ kính lấy vé cầu đường, quét thẻ an ninh hay hóng gió. Rất dễ rơi rớt, bẩn xe và mất tập trung lái xe.
           </p>
         </div>
 
         <!-- Pain 2 -->
-        <div class="glass-panel p-6 border-amber-500/20 bg-gradient-to-b from-amber-950/10 to-slate-900/60">
-          <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl mb-4">
-            <i class="ph ph-warning"></i>
+        <div class="glass-panel p-5 sm:p-6 border-amber-500/25 bg-gradient-to-b from-amber-950/15 to-slate-900/60">
+          <div class="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl mb-3.5">
+            <i class="ph ph-warning-octagon"></i>
           </div>
-          <h4 class="text-lg font-bold text-white mb-2">Che khuất gương chiếu hậu</h4>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Nhiều loại rèm chợ che toàn bộ ô kính phía trước, cản trở tầm nhìn gương chiếu hậu. Tạo ra điểm mù cực kỳ nguy hiểm khi chuyển làn hoặc lùi đỗ ban đêm.
+          <h4 class="text-base sm:text-lg font-bold text-white mb-2">Che khuất gương chiếu hậu</h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Nhiều loại rèm chợ che toàn bộ ô kính phía trước, cản trở tầm nhìn gương chiếu hậu. Tạo ra điểm mù cực kỳ nguy hiểm khi chuyển làn, quay đầu hoặc lùi đỗ xe ban đêm.
           </p>
         </div>
 
         <!-- Pain 3 -->
-        <div class="glass-panel p-6 border-blue-500/20 bg-gradient-to-b from-blue-950/10 to-slate-900/60">
-          <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-2xl mb-4">
+        <div class="glass-panel p-5 sm:p-6 border-blue-500/25 bg-gradient-to-b from-blue-950/15 to-slate-900/60">
+          <div class="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-2xl mb-3.5">
             <i class="ph ph-sun-horizon"></i>
           </div>
-          <h4 class="text-lg font-bold text-white mb-2">Lọt sáng và cong vênh tapli</h4>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Các dòng xe hiện đại có tapli uốn lượn cong vát khiến rèm thường bị hở khe sáng lớn, ánh nắng vẫn chiếu rát mặt người ngồi và làm bạc màu nội thất xe.
+          <h4 class="text-base sm:text-lg font-bold text-white mb-2">Lọt sáng & cong vênh tapli</h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Các dòng xe hiện đại có bệ tapli uốn lượn cong vát khiến rèm đại trà bị hở khe sáng lớn, ánh nắng vẫn chiếu rát mặt người ngồi và làm bạc màu nội thất tapli cửa xe.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SOLUTION & 5 CÔNG NGHỆ NỔI BẬT -->
-  <section id="tinh-nang" class="py-16 md:py-24">
+  <!-- FEATURES: 5 TÍNH NĂNG NỔI BẬT & CAM KẾT -->
+  <section id="tinh-nang" class="py-14 sm:py-20 md:py-24">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="inline-block px-3 py-1 rounded-full bg-blue-950 border border-blue-500/30 text-blue-400 text-xs font-bold uppercase tracking-wider mb-3" data-editable="true">Đột phá công nghệ</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-heading" data-editable="true">
-          5 Lý Do Chủ Xe Lựa Chọn <br>
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <span class="inline-block px-3 py-1 rounded-full bg-blue-950 border border-blue-500/30 text-blue-400 text-xs font-bold uppercase tracking-wider mb-2.5">Đột phá công nghệ</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white font-heading">
+          5 Lý Do Chủ Xe Tin Chọn <br>
           <span class="blue-gradient-text">Rèm Ô Tô Thông Minh SOSO. AUTO</span>
         </h2>
-        <p class="text-slate-400 mt-4 text-base" data-editable="true">Giải pháp hoàn hảo đồng bộ cả về thẩm mỹ, độ bền và tính tiện dụng nguyên bản của xế cưng.</p>
+        <p class="text-slate-400 mt-3 text-xs sm:text-base">Giải pháp hoàn hảo đồng bộ về thẩm mỹ sang trọng, độ bền cơ học và tính tiện dụng nguyên bản của xế cưng.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
         
         <!-- Feature 1 -->
-        <div class="glass-panel glass-panel-hover p-6 flex flex-col justify-between">
+        <div class="glass-panel glass-panel-hover p-5 sm:p-6 flex flex-col justify-between">
           <div>
-            <div class="rounded-xl overflow-hidden aspect-[4/3] mb-5 bg-slate-800">
-              <img data-media-id="feature-img-1" src="assets/images/mechanism-lift.jpg" alt="Cơ chế nâng hạ tự động theo kính" class="w-full h-full object-cover">
+            <div class="rounded-xl overflow-hidden aspect-[4/3] mb-4 bg-slate-800">
+              <img src="assets/images/mechanism-lift.jpg" alt="Cơ chế nâng hạ tự động theo kính xe" class="w-full h-full object-cover">
             </div>
             <div class="flex items-center gap-2 mb-2">
-              <span class="text-xs font-extrabold text-blue-400 bg-blue-950 px-2 py-0.5 rounded">01</span>
-              <h3 class="text-lg font-bold text-white">Nâng Hạ Tự Động Theo Kính</h3>
+              <span class="text-xs font-black text-blue-400 bg-blue-950 border border-blue-500/30 px-2 py-0.5 rounded">01</span>
+              <h3 class="text-base sm:text-lg font-bold text-white">Nâng Hạ Tự Động Theo Kính</h3>
             </div>
-            <p class="text-sm text-slate-300 leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
               Ngàm móc kim loại cài trực tiếp vào mép kính. Kính lên rèm lên, kính xuống rèm tự cuốn gọn vào ống chứa. Hoàn toàn rảnh tay, không cần gỡ rèm khi hạ kính.
             </p>
           </div>
         </div>
 
         <!-- Feature 2 -->
-        <div class="glass-panel glass-panel-hover p-6 flex flex-col justify-between">
+        <div class="glass-panel glass-panel-hover p-5 sm:p-6 flex flex-col justify-between">
           <div>
-            <div class="rounded-xl overflow-hidden aspect-[4/3] mb-5 bg-slate-800">
-              <img data-media-id="feature-img-2" src="assets/images/uv-protection.jpg" alt="Lưới Nano cản 95% UV" class="w-full h-full object-cover">
+            <div class="rounded-xl overflow-hidden aspect-[4/3] mb-4 bg-slate-800">
+              <img src="assets/images/uv-protection.jpg" alt="Lưới Nano cản 95% UV" class="w-full h-full object-cover">
             </div>
             <div class="flex items-center gap-2 mb-2">
-              <span class="text-xs font-extrabold text-amber-400 bg-amber-950 px-2 py-0.5 rounded">02</span>
-              <h3 class="text-lg font-bold text-white">Lưới Tổ Ong Cản 95% Tia UV</h3>
+              <span class="text-xs font-black text-amber-400 bg-amber-950 border border-amber-500/30 px-2 py-0.5 rounded">02</span>
+              <h3 class="text-base sm:text-lg font-bold text-white">Lưới Nano Cản 95% Tia UV</h3>
             </div>
-            <p class="text-sm text-slate-300 leading-relaxed">
-              Dệt sợi nano mật độ cao giúp cản đứng tia cực tím gây đen da, giảm nhiệt độ khoang xe từ 5-8°C. Bên trong nhìn ra thông thoáng, bên ngoài nhìn vào đen kín đáo.
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Dệt sợi nano mật độ cao giúp cản đứng tia cực tím gây đen rát da, giảm nhiệt độ khoang xe từ 5-8°C. Bên trong nhìn ra thông thoáng, bên ngoài nhìn vào đen kín đáo riêng tư.
             </p>
           </div>
         </div>
 
         <!-- Feature 3 -->
-        <div class="glass-panel glass-panel-hover p-6 flex flex-col justify-between">
+        <div class="glass-panel glass-panel-hover p-5 sm:p-6 flex flex-col justify-between">
           <div>
-            <div class="rounded-xl overflow-hidden aspect-[4/3] mb-5 bg-slate-800">
-              <img data-media-id="feature-img-3" src="assets/images/feature-overview.jpg" alt="Vát góc không che gương hậu" class="w-full h-full object-cover">
+            <div class="rounded-xl overflow-hidden aspect-[4/3] mb-4 bg-slate-800">
+              <img src="assets/images/feature-overview.jpg" alt="Vát góc không che gương hậu" class="w-full h-full object-cover">
             </div>
             <div class="flex items-center gap-2 mb-2">
-              <span class="text-xs font-extrabold text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded">03</span>
-              <h3 class="text-lg font-bold text-white">Thiết Kế Vát Góc An Toàn</h3>
+              <span class="text-xs font-black text-emerald-400 bg-emerald-950 border border-emerald-500/30 px-2 py-0.5 rounded">03</span>
+              <h3 class="text-base sm:text-lg font-bold text-white">Thiết Kế Vát Góc An Toàn</h3>
             </div>
-            <p class="text-sm text-slate-300 leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
               Cặp rèm cửa trước được cắt vát tính toán chính xác để chừa khoảng nhìn gương chiếu hậu. Bác tài tự tin quan sát điểm mù, chuyển làn hay lùi xe ban đêm cực an toàn.
             </p>
           </div>
         </div>
 
         <!-- Feature 4 -->
-        <div class="glass-panel glass-panel-hover p-6 flex flex-col justify-between">
+        <div class="glass-panel glass-panel-hover p-5 sm:p-6 flex flex-col justify-between">
           <div>
-            <div class="rounded-xl overflow-hidden aspect-[4/3] mb-5 bg-slate-800">
-              <img data-media-id="feature-img-4" src="assets/images/tapli-result.jpg" alt="Giải pháp xử lý tapli cong chống hở sáng" class="w-full h-full object-cover">
+            <div class="rounded-xl overflow-hidden aspect-[4/3] mb-4 bg-slate-800">
+              <img src="assets/images/tapli-result.jpg" alt="Giải pháp xử lý tapli cong chống hở sáng" class="w-full h-full object-cover">
             </div>
             <div class="flex items-center gap-2 mb-2">
-              <span class="text-xs font-extrabold text-purple-400 bg-purple-950 px-2 py-0.5 rounded">04</span>
-              <h3 class="text-lg font-bold text-white">Giải Pháp Tapli Uốn Cong Độc Quyền</h3>
+              <span class="text-xs font-black text-purple-400 bg-purple-950 border border-purple-500/30 px-2 py-0.5 rounded">04</span>
+              <h3 class="text-base sm:text-lg font-bold text-white">Giải Pháp Tapli Cong Độc Quyền</h3>
             </div>
-            <p class="text-sm text-slate-300 leading-relaxed">
-              Kèm theo bộ đế chân tăng chỉnh và dải decal che khít khoảng hở, ôm trọn các dòng xe có bệ tapli lượn sóng (Tucson, Cross, CX5...), không lọt bất kỳ tia nắng nào.
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Kèm theo bộ chân đế đệm tăng chỉnh 3M và dải decal che khít khoảng hở, ôm trọn các dòng xe có bệ tapli lượn sóng (Tucson, Cross, CX5...), không lọt bất kỳ tia nắng nào.
             </p>
           </div>
         </div>
 
         <!-- Feature 5 -->
-        <div class="glass-panel glass-panel-hover p-6 flex flex-col justify-between">
+        <div class="glass-panel glass-panel-hover p-5 sm:p-6 flex flex-col justify-between">
           <div>
-            <div class="rounded-xl overflow-hidden aspect-[4/3] mb-5 bg-slate-800">
-              <img data-media-id="feature-img-5" src="assets/images/install-guide-1.jpg" alt="Lắp đặt zin 100% không khoan đục" class="w-full h-full object-cover">
+            <div class="rounded-xl overflow-hidden aspect-[4/3] mb-4 bg-slate-800">
+              <img src="assets/images/install-guide-1.jpg" alt="Lắp đặt zin 100% không khoan đục" class="w-full h-full object-cover">
             </div>
             <div class="flex items-center gap-2 mb-2">
-              <span class="text-xs font-extrabold text-cyan-400 bg-cyan-950 px-2 py-0.5 rounded">05</span>
-              <h3 class="text-lg font-bold text-white">Lắp Zin 100% - Không Khoan Đục</h3>
+              <span class="text-xs font-black text-cyan-400 bg-cyan-950 border border-cyan-500/30 px-2 py-0.5 rounded">05</span>
+              <h3 class="text-base sm:text-lg font-bold text-white">Lắp Zin 100% - Không Khoan Đục</h3>
             </div>
-            <p class="text-sm text-slate-300 leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
               Sử dụng băng keo 3M trợ lực siêu dính chuyên dụng cho ô tô và dung dịch tăng cường bám dính. Giữ nguyên bản 100% nội thất xe, tự lắp tại nhà dễ dàng sau 10 phút.
             </p>
           </div>
         </div>
 
-        <!-- Feature 6 (Bonus Box) -->
-        <div class="glass-panel p-6 flex flex-col justify-between border-blue-500/40 bg-gradient-to-br from-blue-900/30 to-slate-900/80">
+        <!-- Feature 6 (Quality Commitment Box) -->
+        <div class="glass-panel p-5 sm:p-6 flex flex-col justify-between border-blue-500/40 bg-gradient-to-br from-blue-900/30 to-slate-900/80">
           <div>
-            <div class="w-12 h-12 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center text-3xl mb-4 border border-blue-500/30">
+            <div class="w-11 h-11 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center text-2xl mb-3.5 border border-blue-500/30">
               <i class="ph ph-shield-star"></i>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">Cam Kết Chất Lượng SOSO AUTO</h3>
-            <ul class="space-y-2.5 text-sm text-slate-300 mb-6">
+            <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Cam Kết Chất Lượng SOSO AUTO</h3>
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-300 mb-5">
               <li class="flex items-center gap-2">
-                <i class="ph ph-check text-emerald-400"></i> Kiểm tra đúng kích thước xe mới thanh toán
+                <i class="ph ph-check text-emerald-400 font-bold"></i> Kiểm tra đúng kích thước xe mới thanh toán
               </li>
               <li class="flex items-center gap-2">
-                <i class="ph ph-check text-emerald-400"></i> Không phải đặt cọc trước (đa số dòng xe)
+                <i class="ph ph-check text-emerald-400 font-bold"></i> Không cần đặt cọc trước (đa số dòng xe)
               </li>
               <li class="flex items-center gap-2">
-                <i class="ph ph-check text-emerald-400"></i> Đầy đủ phụ kiện và video hướng dẫn lắp
+                <i class="ph ph-check text-emerald-400 font-bold"></i> Đầy đủ phụ kiện và video hướng dẫn lắp
               </li>
               <li class="flex items-center gap-2">
-                <i class="ph ph-check text-emerald-400"></i> Hỗ trợ kỹ thuật 24/7 qua Zalo/Hotline
+                <i class="ph ph-check text-emerald-400 font-bold"></i> Hỗ trợ kỹ thuật 24/7 qua Zalo/Hotline
               </li>
             </ul>
           </div>
-          <a href="#dat-hang" class="btn-gold-glow w-full py-3 rounded-xl text-center font-bold text-sm">
+          <a href="#dat-hang" class="btn-gold-glow w-full py-3 rounded-xl text-center font-extrabold text-xs sm:text-sm shadow-md">
             Nhận Báo Giá Theo Xe
           </a>
         </div>
@@ -432,21 +446,20 @@
   </section>
 
   <!-- VIDEO SHOWCASE TRÊN XE THỰC TẾ -->
-  <section id="video-thuc-te" class="py-16 bg-slate-950 border-t border-slate-800">
+  <section id="video-thuc-te" class="py-14 sm:py-20 bg-slate-950 border-t border-slate-800">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center max-w-2xl mx-auto mb-12">
+      <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
         <span class="text-xs font-bold text-blue-400 tracking-widest uppercase">Trải nghiệm chân thực</span>
-        <h2 class="text-3xl font-extrabold text-white font-heading mt-1">Video Trực Tiếp Trên Xe Khách Hàng</h2>
-        <p class="text-slate-400 text-sm mt-2">Xem thao tác nâng hạ kính thực tế trên các dòng xe Toyota Cross, Mazda CX-5, Ford Everest...</p>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-heading mt-1">Video Trực Tiếp Trên Xe Khách Hàng</h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-2">Xem thao tác nâng hạ kính thực tế trên các dòng xe Toyota Cross, Mazda CX-5, Ford Everest...</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center">
         <!-- Video 1 -->
-        <div class="glass-panel p-3 border-slate-700">
+        <div class="glass-panel p-3 border-slate-700/80">
           <div class="relative rounded-xl overflow-hidden aspect-[16/10] bg-black">
             <video 
               id="showcase-video-1"
-              data-media-id="showcase-video-1"
               src="assets/videos/demo-cross.mp4" 
               controls 
               playsinline 
@@ -454,17 +467,17 @@
             </video>
           </div>
           <div class="p-3 text-center">
-            <h4 class="font-bold text-white text-base">Thử Nghiệm Thực Tế Trên Toyota Corolla Cross</h4>
+            <div class="inline-block px-2.5 py-0.5 rounded-full bg-blue-950 text-blue-400 text-[10px] font-bold mb-1">Toyota Corolla Cross</div>
+            <h4 class="font-bold text-white text-sm sm:text-base">Thử Nghiệm Thực Tế Trên Toyota Cross</h4>
             <p class="text-xs text-slate-400 mt-1">Rèm hoạt động êm ái, kéo thả đồng bộ và che kín toàn bộ ô cửa kính sau.</p>
           </div>
         </div>
 
         <!-- Video 2 -->
-        <div class="glass-panel p-3 border-slate-700">
+        <div class="glass-panel p-3 border-slate-700/80">
           <div class="relative rounded-xl overflow-hidden aspect-[16/10] bg-black">
             <video 
               id="showcase-video-2"
-              data-media-id="showcase-video-2"
               src="assets/videos/demo-auto.mp4" 
               controls 
               playsinline 
@@ -472,7 +485,8 @@
             </video>
           </div>
           <div class="p-3 text-center">
-            <h4 class="font-bold text-white text-base">Cơ Chế Nâng Hạ Đồng Bộ & Kẹp Kính</h4>
+            <div class="inline-block px-2.5 py-0.5 rounded-full bg-amber-950 text-amber-400 text-[10px] font-bold mb-1">Mazda CX-5 & Phổ Thông</div>
+            <h4 class="font-bold text-white text-sm sm:text-base">Cơ Chế Nâng Hạ Đồng Bộ & Kẹp Kính</h4>
             <p class="text-xs text-slate-400 mt-1">Gài móc chắc chắn, không làm xước kính xe, cuộn thả mượt mà hàng nghìn lần.</p>
           </div>
         </div>
@@ -481,71 +495,78 @@
   </section>
 
   <!-- BẢNG SO SÁNH: SOSO AUTO VS RÈM THƯỜNG -->
-  <section id="comparison-section" class="py-16 md:py-24">
+  <section id="so-sanh" class="py-14 sm:py-20 md:py-24">
     <div class="max-w-5xl mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-heading" data-editable="true">
+      <div class="text-center mb-10 sm:mb-12">
+        <span class="text-xs font-bold text-blue-400 tracking-widest uppercase">Phân tích chuyên sâu</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-heading mt-1">
           So Sánh <span class="blue-gradient-text">Rèm Tự Động SOSO</span> vs Rèm Truyền Thống
         </h2>
-        <p class="text-slate-400 text-sm mt-2" data-editable="true">Xem sự khác biệt vượt trội giúp nâng tầm chiếc xe của bạn</p>
+        <p class="text-slate-400 text-xs sm:text-sm mt-2">Xem sự khác biệt vượt trội giúp nâng tầm chiếc xe của bạn</p>
       </div>
 
-      <div class="overflow-x-auto">
-        <table class="w-full text-left text-sm glass-panel border-collapse">
+      <!-- Real Visual Comparison Photo Card -->
+      <div class="mb-8 rounded-2xl overflow-hidden glass-panel border border-slate-700">
+        <img src="assets/images/comparison-vs-regular.jpg" alt="So sánh rèm SOSO AUTO với rèm che nắng thông thường" class="w-full h-auto object-cover max-h-[380px]">
+      </div>
+
+      <!-- Responsive Comparison Table -->
+      <div class="overflow-x-auto rounded-2xl glass-panel border border-slate-800">
+        <table class="w-full text-left text-xs sm:text-sm border-collapse">
           <thead>
-            <tr class="border-b border-slate-700 bg-slate-900/80 text-xs uppercase tracking-wider">
-              <th class="p-4 sm:p-5 text-slate-300 font-bold">Tiêu chí đánh giá</th>
-              <th class="p-4 sm:p-5 text-blue-400 font-extrabold bg-blue-950/40 border-x border-blue-500/20 text-center w-1/3">
+            <tr class="border-b border-slate-700 bg-slate-900/90 text-[11px] sm:text-xs uppercase tracking-wider">
+              <th class="p-3.5 sm:p-5 text-slate-300 font-bold">Tiêu chí đánh giá</th>
+              <th class="p-3.5 sm:p-5 text-blue-400 font-black bg-blue-950/50 border-x border-blue-500/30 text-center w-[40%] sm:w-1/3">
                 Rèm Tự Động SOSO. AUTO
               </th>
-              <th class="p-4 sm:p-5 text-slate-400 font-semibold text-center w-1/3">
+              <th class="p-3.5 sm:p-5 text-slate-400 font-semibold text-center w-[35%] sm:w-1/3">
                 Rèm Nam Châm / Rèm Hút Chợ
               </th>
             </tr>
           </thead>
           <tbody class="divide-y divide-slate-800 text-slate-300">
             <tr>
-              <td class="p-4 font-semibold text-white">Thao tác khi hạ kính</td>
-              <td class="p-4 text-center bg-blue-950/20 border-x border-blue-500/20 font-bold text-emerald-400">
-                <i class="ph ph-check-circle text-lg inline mr-1"></i> Tự động cuộn theo kính
+              <td class="p-3.5 sm:p-4 font-semibold text-white">Thao tác khi hạ kính</td>
+              <td class="p-3.5 sm:p-4 text-center bg-blue-950/25 border-x border-blue-500/20 font-bold text-emerald-400">
+                <i class="ph ph-check-circle text-base sm:text-lg inline mr-1"></i> Tự động cuộn theo kính
               </td>
-              <td class="p-4 text-center text-red-400">
-                <i class="ph ph-x-circle text-lg inline mr-1"></i> Phải gỡ rèm bằng tay
-              </td>
-            </tr>
-            <tr>
-              <td class="p-4 font-semibold text-white">Quan sát gương chiếu hậu</td>
-              <td class="p-4 text-center bg-blue-950/20 border-x border-blue-500/20 font-bold text-emerald-400">
-                <i class="ph ph-check-circle text-lg inline mr-1"></i> Vát góc thông minh, rõ ràng 100%
-              </td>
-              <td class="p-4 text-center text-red-400">
-                <i class="ph ph-x-circle text-lg inline mr-1"></i> Che khuất, tạo điểm mù nguy hiểm
+              <td class="p-3.5 sm:p-4 text-center text-red-400">
+                <i class="ph ph-x-circle text-base sm:text-lg inline mr-1"></i> Phải gỡ rèm bằng tay
               </td>
             </tr>
             <tr>
-              <td class="p-4 font-semibold text-white">Độ khít tapli uốn cong</td>
-              <td class="p-4 text-center bg-blue-950/20 border-x border-blue-500/20 font-bold text-emerald-400">
-                <i class="ph ph-check-circle text-lg inline mr-1"></i> Có đệm 3M & decal che hở sáng
+              <td class="p-3.5 sm:p-4 font-semibold text-white">Quan sát gương chiếu hậu</td>
+              <td class="p-3.5 sm:p-4 text-center bg-blue-950/25 border-x border-blue-500/20 font-bold text-emerald-400">
+                <i class="ph ph-check-circle text-base sm:text-lg inline mr-1"></i> Vát góc thông minh, rõ 100%
               </td>
-              <td class="p-4 text-center text-red-400">
-                <i class="ph ph-x-circle text-lg inline mr-1"></i> Bị hở sáng lớn, cong vênh
-              </td>
-            </tr>
-            <tr>
-              <td class="p-4 font-semibold text-white">Độ chắc chắn & thẩm mỹ</td>
-              <td class="p-4 text-center bg-blue-950/20 border-x border-blue-500/20 font-bold text-emerald-400">
-                <i class="ph ph-check-circle text-lg inline mr-1"></i> Thanh nhôm ôm khít như option zin
-              </td>
-              <td class="p-4 text-center text-slate-400">
-                <i class="ph ph-x-circle text-lg inline mr-1"></i> Lỏng lẻo, dễ rơi khi chạy xóc
+              <td class="p-3.5 sm:p-4 text-center text-red-400">
+                <i class="ph ph-x-circle text-base sm:text-lg inline mr-1"></i> Che khuất, tạo điểm mù nguy hiểm
               </td>
             </tr>
             <tr>
-              <td class="p-4 font-semibold text-white">Khả năng cản nhiệt & UV</td>
-              <td class="p-4 text-center bg-blue-950/20 border-x border-blue-500/20 font-bold text-emerald-400">
-                <i class="ph ph-check-circle text-lg inline mr-1"></i> 95% tia UV, hạ 5 - 8°C
+              <td class="p-3.5 sm:p-4 font-semibold text-white">Độ khít tapli uốn cong</td>
+              <td class="p-3.5 sm:p-4 text-center bg-blue-950/25 border-x border-blue-500/20 font-bold text-emerald-400">
+                <i class="ph ph-check-circle text-base sm:text-lg inline mr-1"></i> Đệm 3M & decal che khít
               </td>
-              <td class="p-4 text-center text-slate-400">
+              <td class="p-3.5 sm:p-4 text-center text-red-400">
+                <i class="ph ph-x-circle text-base sm:text-lg inline mr-1"></i> Bị hở sáng lớn, cong vênh
+              </td>
+            </tr>
+            <tr>
+              <td class="p-3.5 sm:p-4 font-semibold text-white">Độ chắc chắn & thẩm mỹ</td>
+              <td class="p-3.5 sm:p-4 text-center bg-blue-950/25 border-x border-blue-500/20 font-bold text-emerald-400">
+                <i class="ph ph-check-circle text-base sm:text-lg inline mr-1"></i> Khung nhôm ôm khít như zin
+              </td>
+              <td class="p-3.5 sm:p-4 text-center text-slate-400">
+                <i class="ph ph-x-circle text-base sm:text-lg inline mr-1"></i> Lỏng lẻo, dễ rơi khi xóc
+              </td>
+            </tr>
+            <tr>
+              <td class="p-3.5 sm:p-4 font-semibold text-white">Khả năng cản nhiệt & UV</td>
+              <td class="p-3.5 sm:p-4 text-center bg-blue-950/25 border-x border-blue-500/20 font-bold text-emerald-400">
+                <i class="ph ph-check-circle text-base sm:text-lg inline mr-1"></i> 95% UV, hạ 5 - 8°C
+              </td>
+              <td class="p-3.5 sm:p-4 text-center text-slate-400">
                 Vải mỏng, lọt nhiệt nhiều
               </td>
             </tr>
@@ -556,186 +577,190 @@
   </section>
 
   <!-- DANH SÁCH DÒNG XE HỖ TRỢ (INTERACTIVE FILTER) -->
-  <section id="dong-xe" class="py-16 bg-slate-950/80 border-t border-slate-800">
+  <section id="dong-xe" class="py-14 sm:py-20 bg-slate-950/80 border-t border-slate-800">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
         <span class="text-xs font-bold text-blue-400 tracking-widest uppercase">Đầy đủ form kích thước</span>
-        <h2 class="text-3xl font-extrabold text-white font-heading mt-1">Tương Thích Mọi Dòng Xe Phổ Biến</h2>
-        <p class="text-slate-400 text-sm mt-2">Hàng có sẵn chuẩn form, đặt hàng không cần cọc tiền trước (kiểm tra chuẩn xe mới nhận)</p>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-heading mt-1">Tương Thích Mọi Dòng Xe Phổ Biến</h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-2">Hàng có sẵn chuẩn form xe, đặt hàng không cần cọc tiền trước (kiểm tra chuẩn xe mới thanh toán)</p>
       </div>
 
-      <!-- Filter Tabs (Scrollable on mobile, wrapped on desktop) -->
-      <div class="flex overflow-x-auto no-scrollbar sm:flex-wrap items-center sm:justify-center gap-2 pb-3 sm:pb-0 mb-8 px-1">
-        <button class="car-tab-btn active shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-300 transition-all" data-brand="all">Tất Cả Hãng Xe</button>
-        <button class="car-tab-btn shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-300 transition-all" data-brand="toyota">Toyota</button>
-        <button class="car-tab-btn shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-300 transition-all" data-brand="honda">Honda</button>
-        <button class="car-tab-btn shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-300 transition-all" data-brand="mazda">Mazda</button>
-        <button class="car-tab-btn shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-300 transition-all" data-brand="hyundai">Hyundai</button>
-        <button class="car-tab-btn shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-300 transition-all" data-brand="kia">Kia</button>
-        <button class="car-tab-btn shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-300 transition-all" data-brand="vinfast">VinFast</button>
-        <button class="car-tab-btn shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-300 transition-all" data-brand="ford">Ford</button>
-        <button class="car-tab-btn shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-300 transition-all" data-brand="mitsubishi">Mitsubishi</button>
+      <!-- Filter Tabs (Horizontal scroll on mobile) -->
+      <div class="flex overflow-x-auto no-scrollbar sm:flex-wrap items-center sm:justify-center gap-2 pb-3 sm:pb-0 mb-7 px-1">
+        <button class="car-tab-btn active shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-300 transition-all" data-brand="all">Tất Cả Hãng Xe</button>
+        <button class="car-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-300 transition-all" data-brand="toyota">Toyota</button>
+        <button class="car-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-300 transition-all" data-brand="honda">Honda</button>
+        <button class="car-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-300 transition-all" data-brand="mazda">Mazda</button>
+        <button class="car-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-300 transition-all" data-brand="hyundai">Hyundai</button>
+        <button class="car-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-300 transition-all" data-brand="kia">Kia</button>
+        <button class="car-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-300 transition-all" data-brand="vinfast">VinFast</button>
+        <button class="car-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-300 transition-all" data-brand="ford">Ford</button>
+        <button class="car-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-300 transition-all" data-brand="mitsubishi">Mitsubishi</button>
       </div>
 
-      <!-- Car Grid -->
-      <div id="car-list-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+      <!-- Car Grid (2 cols mobile, 3 tablet, 6 desktop) -->
+      <div id="car-list-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5 sm:gap-3">
         <!-- Toyota -->
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="toyota">
-          <p class="font-bold text-white text-sm">Toyota Cross</p>
-          <span class="text-[11px] text-emerald-400">Có sẵn form</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Toyota Cross</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">Có sẵn form</span>
         </div>
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="toyota">
-          <p class="font-bold text-white text-sm">Toyota Vios</p>
-          <span class="text-[11px] text-emerald-400">2008 - 2024</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Toyota Vios</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">2008 - 2024</span>
         </div>
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="toyota">
-          <p class="font-bold text-white text-sm">Toyota Innova</p>
-          <span class="text-[11px] text-emerald-400">Đầy đủ đời</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Toyota Innova</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">Đầy đủ đời</span>
         </div>
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="toyota">
-          <p class="font-bold text-white text-sm">Toyota Fortuner</p>
-          <span class="text-[11px] text-emerald-400">Thanh sau 89cm</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Toyota Fortuner</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">Thanh sau 89cm</span>
         </div>
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="toyota">
-          <p class="font-bold text-white text-sm">Toyota Camry</p>
-          <span class="text-[11px] text-emerald-400">2005 - 2024</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Toyota Camry</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">2005 - 2024</span>
         </div>
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="toyota">
-          <p class="font-bold text-white text-sm">Land Cruiser</p>
-          <span class="text-[11px] text-emerald-400">LC300 & Prado</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Land Cruiser</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">LC300 & Prado</span>
         </div>
 
         <!-- Honda -->
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="honda">
-          <p class="font-bold text-white text-sm">Honda CR-V</p>
-          <span class="text-[11px] text-emerald-400">2018 - 2024</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Honda CR-V</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">2018 - 2024</span>
         </div>
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="honda">
-          <p class="font-bold text-white text-sm">Honda HR-V</p>
-          <span class="text-[11px] text-emerald-400">2021 - 2026</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Honda HR-V</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">2021 - 2026</span>
         </div>
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="honda">
-          <p class="font-bold text-white text-sm">Honda City</p>
-          <span class="text-[11px] text-emerald-400">2016 - 2025</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Honda City</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">2016 - 2025</span>
         </div>
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="honda">
-          <p class="font-bold text-white text-sm">Honda Civic</p>
-          <span class="text-[11px] text-emerald-400">2022 - 2025</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Honda Civic</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">2022 - 2025</span>
         </div>
 
         <!-- Mazda -->
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="mazda">
-          <p class="font-bold text-white text-sm">Mazda CX-5</p>
-          <span class="text-[11px] text-emerald-400">Bán chạy nhất</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Mazda CX-5</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">Bán chạy nhất</span>
         </div>
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="mazda">
-          <p class="font-bold text-white text-sm">Mazda 6 / CX-8</p>
-          <span class="text-[11px] text-emerald-400">Có sẵn form</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Mazda 6 / CX-8</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">Có sẵn form</span>
+        </div>
+        <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="mazda">
+          <p class="font-bold text-white text-xs sm:text-sm">Mazda 3</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">Chuẩn form xe</span>
         </div>
 
         <!-- Hyundai -->
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="hyundai">
-          <p class="font-bold text-white text-sm">Hyundai SantaFe</p>
-          <span class="text-[11px] text-emerald-400">2019 - 2024</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Hyundai SantaFe</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">2019 - 2024</span>
         </div>
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="hyundai">
-          <p class="font-bold text-white text-sm">Hyundai Tucson</p>
-          <span class="text-[11px] text-emerald-400">Kèm đế đệm cong</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Hyundai Tucson</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">Kèm đế đệm cong</span>
         </div>
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="hyundai">
-          <p class="font-bold text-white text-sm">Hyundai Accent</p>
-          <span class="text-[11px] text-emerald-400">2018 - 2024</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Hyundai Accent</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">2018 - 2024</span>
         </div>
 
         <!-- Kia -->
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="kia">
-          <p class="font-bold text-white text-sm">Kia Carnival</p>
-          <span class="text-[11px] text-emerald-400">2022 - 2025</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Kia Carnival</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">2022 - 2025</span>
         </div>
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="kia">
-          <p class="font-bold text-white text-sm">Kia Seltos / Sonet</p>
-          <span class="text-[11px] text-emerald-400">Có sẵn form</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Kia Seltos / Sonet</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">Có sẵn form</span>
         </div>
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="kia">
-          <p class="font-bold text-white text-sm">Kia Sorento / Carens</p>
-          <span class="text-[11px] text-emerald-400">Chuẩn form xe</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Kia Sorento / Carens</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">Chuẩn form xe</span>
         </div>
 
         <!-- VinFast -->
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="vinfast">
-          <p class="font-bold text-white text-sm">VinFast VF3</p>
-          <span class="text-[11px] text-amber-400 font-semibold">Cực hot!</span>
+          <p class="font-bold text-white text-xs sm:text-sm">VinFast VF3</p>
+          <span class="text-[10px] text-amber-400 font-bold">Cực hot!</span>
         </div>
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="vinfast">
-          <p class="font-bold text-white text-sm">VinFast VF5 / VF6</p>
-          <span class="text-[11px] text-emerald-400">Có sẵn form</span>
+          <p class="font-bold text-white text-xs sm:text-sm">VinFast VF5 / VF6</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">Có sẵn form</span>
         </div>
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="vinfast">
-          <p class="font-bold text-white text-sm">VinFast VF8 / VF9</p>
-          <span class="text-[11px] text-emerald-400">Sang trọng</span>
+          <p class="font-bold text-white text-xs sm:text-sm">VinFast VF8 / VF9</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">Sang trọng</span>
         </div>
 
         <!-- Ford -->
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="ford">
-          <p class="font-bold text-white text-sm">Ford Everest</p>
-          <span class="text-[11px] text-emerald-400">Cửa trước 62cm</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Ford Everest</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">Cửa trước 62cm</span>
         </div>
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="ford">
-          <p class="font-bold text-white text-sm">Ford Ranger</p>
-          <span class="text-[11px] text-emerald-400">Next-Gen</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Ford Ranger</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">Next-Gen</span>
         </div>
 
         <!-- Mitsubishi -->
         <div class="car-item p-3 rounded-xl glass-panel text-center border-slate-800" data-brand="mitsubishi">
-          <p class="font-bold text-white text-sm">Xpander / Xforce</p>
-          <span class="text-[11px] text-emerald-400">Thanh sau 80cm</span>
+          <p class="font-bold text-white text-xs sm:text-sm">Xpander / Xforce</p>
+          <span class="text-[10px] text-emerald-400 font-semibold">Thanh sau 80cm</span>
         </div>
       </div>
 
-      <div class="mt-8 text-center text-xs text-slate-400">
-        <p>Xe của bạn không có trong danh sách trên? <a href="#dat-hang" class="text-blue-400 underline font-semibold">Nhập tên xe vào form bên dưới</a> hoặc nhắn Zalo <strong>0967.103.928</strong> để shop đo size chính xác!</p>
+      <div class="mt-7 text-center text-xs text-slate-400">
+        <p>Xe của bạn không có trong danh sách trên? <a href="#dat-hang" class="text-blue-400 underline font-bold">Nhập tên xe vào form bên dưới</a> hoặc nhắn Zalo <strong>0967.103.928</strong> để shop đo size chính xác!</p>
       </div>
     </div>
   </section>
 
   <!-- HƯỚNG DẪN LẮP ĐẶT 3 BƯỚC -->
-  <section id="install-section" class="py-16 md:py-24">
+  <section id="huong-dan" class="py-14 sm:py-20 md:py-24">
     <div class="max-w-5xl mx-auto px-4">
-      <div class="text-center mb-14">
-        <span class="text-xs font-bold text-blue-400 tracking-widest uppercase" data-editable="true">Tự thao tác tại nhà</span>
-        <h2 class="text-3xl font-extrabold text-white font-heading mt-1" data-editable="true">3 Bước Lắp Đặt Đơn Giản Trong 10 Phút</h2>
-        <p class="text-slate-400 text-sm mt-2" data-editable="true">Kèm theo đầy đủ keo 3M trợ lực, dung dịch tăng dính và phụ kiện độc quyền</p>
+      <div class="text-center mb-10 sm:mb-14">
+        <span class="text-xs font-bold text-blue-400 tracking-widest uppercase">Tự thao tác tại nhà</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-heading mt-1">3 Bước Lắp Đặt Đơn Giản Trong 10 Phút</h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-2">Kèm theo đầy đủ keo 3M trợ lực, dung dịch tăng dính và phụ kiện độc quyền</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-7 relative">
         <!-- Step 1 -->
-        <div class="glass-panel p-6 text-center relative">
-          <div class="w-12 h-12 rounded-full bg-blue-600 text-white font-extrabold text-lg flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-500/30">
+        <div class="glass-panel p-5 sm:p-6 text-center relative">
+          <div class="w-11 h-11 rounded-full bg-blue-600 text-white font-black text-base flex items-center justify-center mx-auto mb-3.5 shadow-lg shadow-blue-500/30">
             1
           </div>
-          <h3 class="text-base font-bold text-white mb-2">Vệ Sinh Bệ Cửa</h3>
+          <h3 class="text-sm sm:text-base font-bold text-white mb-2">Vệ Sinh Bệ Cửa</h3>
           <p class="text-xs text-slate-300 leading-relaxed">
             Dùng cồn hoặc khăn sạch lau sạch dầu mỡ và bụi bẩn bệ kính. Thoa dung dịch tăng bám dính kèm theo hộp.
           </p>
         </div>
 
         <!-- Step 2 -->
-        <div class="glass-panel p-6 text-center relative">
-          <div class="w-12 h-12 rounded-full bg-blue-600 text-white font-extrabold text-lg flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-500/30">
+        <div class="glass-panel p-5 sm:p-6 text-center relative">
+          <div class="w-11 h-11 rounded-full bg-blue-600 text-white font-black text-base flex items-center justify-center mx-auto mb-3.5 shadow-lg shadow-blue-500/30">
             2
           </div>
-          <h3 class="text-base font-bold text-white mb-2">Dán Cố Định Thanh Rèm</h3>
+          <h3 class="text-sm sm:text-base font-bold text-white mb-2">Dán Cố Định Thanh Rèm</h3>
           <p class="text-xs text-slate-300 leading-relaxed">
             Bóc dải keo 3M trợ lực, căn chỉnh rèm ôm khít mép tapli cửa xe rồi ấn chặt trong 2-3 phút để keo ăn sâu.
           </p>
         </div>
 
         <!-- Step 3 -->
-        <div class="glass-panel p-6 text-center relative">
-          <div class="w-12 h-12 rounded-full bg-amber-500 text-slate-950 font-extrabold text-lg flex items-center justify-center mx-auto mb-4 shadow-lg shadow-amber-500/30">
+        <div class="glass-panel p-5 sm:p-6 text-center relative">
+          <div class="w-11 h-11 rounded-full bg-amber-500 text-slate-950 font-black text-base flex items-center justify-center mx-auto mb-3.5 shadow-lg shadow-amber-500/30">
             3
           </div>
-          <h3 class="text-base font-bold text-white mb-2">Cài Ngàm Lên Kính</h3>
+          <h3 class="text-sm sm:text-base font-bold text-white mb-2">Cài Ngàm Lên Kính</h3>
           <p class="text-xs text-slate-300 leading-relaxed">
             Kéo nhẹ rèm lên, cài móc ngàm vào mép kính trên. Hoàn tất! Khuyên dùng ổn định sau 24h để keo đạt độ dính vĩnh cửu.
           </p>
@@ -745,117 +770,117 @@
   </section>
 
   <!-- BẢNG GIÁ & GÓI COMBO KHUYẾN MÃI -->
-  <section id="bang-gia" class="py-16 md:py-24 bg-gradient-to-b from-[#090D16] via-blue-950/20 to-[#090D16] border-t border-slate-800">
+  <section id="bang-gia" class="py-14 sm:py-20 md:py-24 bg-gradient-to-b from-[#090D16] via-blue-950/20 to-[#090D16] border-t border-slate-800">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold uppercase mb-3">
+      <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold uppercase mb-2">
           <i class="ph ph-tag"></i> Bảng giá niêm yết chính hãng
         </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-heading">Lựa Chọn Gói Phù Hợp Cho Xe Bạn</h2>
-        <p class="text-slate-400 text-sm mt-2">Mua bộ Full 4 rèm để nhận ngay ưu đãi miễn phí ship và giảm thêm 10% bộ tiếp theo!</p>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white font-heading">Lựa Chọn Gói Phù Hợp Cho Xe Bạn</h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-2">Mua bộ Full 4 rèm để nhận ngay ưu đãi miễn phí ship và giảm thêm 10% bộ tiếp theo!</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
         
         <!-- Package 1: Front Pair -->
-        <div class="package-card glass-panel p-7 flex flex-col justify-between border-slate-800 cursor-pointer transition-all hover:border-slate-600" data-package="front">
+        <div class="package-card glass-panel p-6 sm:p-7 flex flex-col justify-between border-slate-800 cursor-pointer transition-all hover:border-slate-600" data-package="front">
           <div>
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Cửa Trước</span>
-            <h3 class="text-xl font-bold text-white mt-1">Cặp 2 Rèm Trước</h3>
-            <p class="text-xs text-slate-400 mt-2">Phù hợp cho tài xế và ghế phụ, thiết kế vát góc nhìn gương hậu an toàn.</p>
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Cửa Trước</span>
+            <h3 class="text-lg sm:text-xl font-bold text-white mt-1">Cặp 2 Rèm Trước</h3>
+            <p class="text-xs text-slate-400 mt-1.5">Phù hợp cho tài xế và ghế phụ, thiết kế vát góc nhìn gương hậu an toàn.</p>
             
-            <div class="my-6">
-              <span class="text-3xl font-extrabold text-white" data-bind="frontPrice" data-editable="true">629.000đ</span>
-              <span class="block text-xs text-slate-500 line-through mt-0.5">Giá gốc: <span data-bind="frontOldPrice" data-editable="true">850.000đ</span></span>
+            <div class="my-5">
+              <span class="text-2xl sm:text-3xl font-extrabold text-white">629.000đ</span>
+              <span class="block text-xs text-slate-500 line-through mt-0.5">Giá gốc: 850.000đ</span>
             </div>
 
-            <ul class="space-y-3 text-xs text-slate-300 border-t border-slate-800 pt-6">
-              <li class="flex items-center gap-2.5">
-                <i class="ph ph-check text-blue-400 font-bold"></i> 2 rèm tự động cửa trước chuẩn kích thước
+            <ul class="space-y-2.5 text-xs text-slate-300 border-t border-slate-800 pt-5">
+              <li class="flex items-center gap-2">
+                <i class="ph ph-check text-blue-400 font-bold"></i> 2 rèm tự động cửa trước chuẩn form
               </li>
-              <li class="flex items-center gap-2.5">
+              <li class="flex items-center gap-2">
                 <i class="ph ph-check text-blue-400 font-bold"></i> Tặng kèm phụ kiện keo 3M & móc cài
               </li>
-              <li class="flex items-center gap-2.5">
+              <li class="flex items-center gap-2">
                 <i class="ph ph-check text-blue-400 font-bold"></i> Kiểm tra hàng chuẩn mới thanh toán
               </li>
             </ul>
           </div>
 
-          <a href="#dat-hang" class="w-full mt-8 py-3 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs text-center block transition-all">
+          <a href="#dat-hang" class="w-full mt-6 py-3 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs text-center block transition-all">
             Chọn Gói Cửa Trước
           </a>
         </div>
 
         <!-- Package 2: COMBO FULL 4 RÈM (BEST SELLER) -->
-        <div class="package-card relative glass-panel p-7 flex flex-col justify-between border-2 border-blue-500 bg-blue-950/30 rounded-2xl shadow-2xl shadow-blue-500/20 cursor-pointer ring-2 ring-blue-500" data-package="full">
-          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 text-xs font-extrabold px-4 py-1 rounded-full uppercase tracking-wider shadow-md">
-            Khuyên Dùng • Tiết Kiệm Nhất
+        <div class="package-card selected relative glass-panel p-6 sm:p-7 flex flex-col justify-between border-2 border-blue-500 bg-blue-950/30 rounded-2xl shadow-2xl shadow-blue-500/25 cursor-pointer ring-2 ring-blue-500" data-package="full">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 text-[11px] font-black px-4 py-1 rounded-full uppercase tracking-wider shadow-lg">
+            BÁN CHẠY NHẤT • KHUYÊN DÙNG
           </div>
 
           <div>
-            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Trọn Vẹn 4 Cửa</span>
-            <h3 class="text-2xl font-black text-white mt-1">COMBO FULL 4 RÈM</h3>
-            <p class="text-xs text-slate-300 mt-2">Bảo vệ toàn diện cả khoang lái và hàng ghế hành khách phía sau.</p>
+            <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider">Trọn Vẹn 4 Cửa</span>
+            <h3 class="text-xl sm:text-2xl font-black text-white mt-1">COMBO FULL 4 RÈM</h3>
+            <p class="text-xs text-slate-300 mt-1.5">Bảo vệ toàn diện cả khoang lái và hàng ghế hành khách phía sau.</p>
             
-            <div class="my-6">
-              <span class="text-4xl font-black text-amber-400" data-bind="fullPrice" data-editable="true">1.220.000đ</span>
-              <div class="flex items-center gap-2 mt-0.5">
-                <span class="text-xs text-slate-400 line-through">Giá gốc: <span data-bind="fullOldPrice" data-editable="true">1.650.000đ</span></span>
-                <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded">Tiết kiệm 430K</span>
+            <div class="my-5">
+              <span class="text-3xl sm:text-4xl font-black text-amber-400">1.220.000đ</span>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="text-xs text-slate-400 line-through">Giá gốc: 1.650.000đ</span>
+                <span class="text-[10px] font-black text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded">Tiết kiệm 430K</span>
               </div>
             </div>
 
-            <ul class="space-y-3 text-xs text-slate-200 border-t border-slate-700/60 pt-6">
-              <li class="flex items-center gap-2.5 font-semibold text-amber-300">
-                <i class="ph ph-gift text-base font-bold"></i> MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC
+            <ul class="space-y-2.5 text-xs text-slate-200 border-t border-slate-700/60 pt-5">
+              <li class="flex items-center gap-2 font-bold text-amber-300">
+                <i class="ph ph-gift text-base"></i> MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC
               </li>
-              <li class="flex items-center gap-2.5">
-                <i class="ph ph-check text-emerald-400 font-bold"></i> Đủ bộ 4 rèm (2 trước + 2 sau) theo xe
+              <li class="flex items-center gap-2">
+                <i class="ph ph-check text-emerald-400 font-bold"></i> Đủ bộ 4 rèm (2 trước + 2 sau) chuẩn form xe
               </li>
-              <li class="flex items-center gap-2.5">
-                <i class="ph ph-check text-emerald-400 font-bold"></i> Tặng kèm trọn bộ phụ kiện xử lý tapli cong
+              <li class="flex items-center gap-2">
+                <i class="ph ph-check text-emerald-400 font-bold"></i> Tặng trọn bộ phụ kiện xử lý tapli cong
               </li>
-              <li class="flex items-center gap-2.5 text-blue-300">
+              <li class="flex items-center gap-2 text-blue-300">
                 <i class="ph ph-percent text-base font-bold"></i> Giảm 10% từ bộ thứ 2 (chỉ còn 1.098.000đ)
               </li>
-              <li class="flex items-center gap-2.5">
+              <li class="flex items-center gap-2">
                 <i class="ph ph-shield-check text-emerald-400 font-bold"></i> Bảo hành đổi mới nếu không vừa xe
               </li>
             </ul>
           </div>
 
-          <a href="#dat-hang" class="btn-primary-glow w-full mt-8 py-3.5 rounded-xl text-white font-extrabold text-sm text-center block shadow-lg">
+          <a href="#dat-hang" class="btn-primary-glow w-full mt-6 py-3.5 rounded-xl text-white font-extrabold text-xs sm:text-sm text-center block shadow-lg">
             ĐẶT COMBO FULL 4 RÈM
           </a>
         </div>
 
         <!-- Package 3: Rear Pair -->
-        <div class="package-card glass-panel p-7 flex flex-col justify-between border-slate-800 cursor-pointer transition-all hover:border-slate-600" data-package="rear">
+        <div class="package-card glass-panel p-6 sm:p-7 flex flex-col justify-between border-slate-800 cursor-pointer transition-all hover:border-slate-600" data-package="rear">
           <div>
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Cửa Sau</span>
-            <h3 class="text-xl font-bold text-white mt-1">Cặp 2 Rèm Sau</h3>
-            <p class="text-xs text-slate-400 mt-2">Bảo vệ hàng ghế trẻ em và gia đình, che kín 100% diện tích kính sau.</p>
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Cửa Sau</span>
+            <h3 class="text-lg sm:text-xl font-bold text-white mt-1">Cặp 2 Rèm Sau</h3>
+            <p class="text-xs text-slate-400 mt-1.5">Bảo vệ hàng ghế trẻ em và gia đình, che kín 100% diện tích kính sau.</p>
             
-            <div class="my-6">
-              <span class="text-3xl font-extrabold text-white" data-bind="rearPrice" data-editable="true">669.000đ</span>
-              <span class="block text-xs text-slate-500 line-through mt-0.5">Giá gốc: <span data-bind="rearOldPrice" data-editable="true">890.000đ</span></span>
+            <div class="my-5">
+              <span class="text-2xl sm:text-3xl font-extrabold text-white">669.000đ</span>
+              <span class="block text-xs text-slate-500 line-through mt-0.5">Giá gốc: 890.000đ</span>
             </div>
 
-            <ul class="space-y-3 text-xs text-slate-300 border-t border-slate-800 pt-6">
-              <li class="flex items-center gap-2.5">
+            <ul class="space-y-2.5 text-xs text-slate-300 border-t border-slate-800 pt-5">
+              <li class="flex items-center gap-2">
                 <i class="ph ph-check text-blue-400 font-bold"></i> 2 rèm cửa sau kích thước riêng từng xe
               </li>
-              <li class="flex items-center gap-2.5">
-                <i class="ph ph-check text-blue-400 font-bold"></i> Phụ kiện dán 3M & móc gắn kính
+              <li class="flex items-center gap-2">
+                <i class="ph ph-check text-blue-400 font-bold"></i> Phụ kiện dán 3M & móc kẹp kính
               </li>
-              <li class="flex items-center gap-2.5">
+              <li class="flex items-center gap-2">
                 <i class="ph ph-check text-blue-400 font-bold"></i> Không cần đặt cọc trước
               </li>
             </ul>
           </div>
 
-          <a href="#dat-hang" class="w-full mt-8 py-3 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs text-center block transition-all">
+          <a href="#dat-hang" class="w-full mt-6 py-3 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs text-center block transition-all">
             Chọn Gói Cửa Sau
           </a>
         </div>
@@ -865,80 +890,86 @@
   </section>
 
   <!-- FEEDBACK KHÁCH HÀNG THỰC TẾ -->
-  <section id="feedback" class="py-16 md:py-24 border-t border-slate-800 bg-slate-950">
+  <section id="feedback" class="py-14 sm:py-20 md:py-24 border-t border-slate-800 bg-slate-950">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <span class="text-xs font-bold text-amber-400 tracking-widest uppercase">Phản hồi thực tế</span>
-        <h2 class="text-3xl font-extrabold text-white font-heading mt-1">Khách Hàng Nói Gì Về SOSO. AUTO?</h2>
-        <p class="text-slate-400 text-sm mt-2">Hình ảnh tin nhắn và đánh giá 5 sao từ các bác tài trên toàn quốc</p>
+      <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+        <span class="text-xs font-bold text-amber-400 tracking-widest uppercase">Phản hồi chân thực</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-heading mt-1">Khách Hàng Nói Gì Về SOSO. AUTO?</h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-2">Hình ảnh tin nhắn và đánh giá 5 sao từ các bác tài trên toàn quốc</p>
       </div>
 
-      <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:overflow-visible no-scrollbar px-1">
+      <div class="horizontal-snap-scroll md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:overflow-visible px-1">
         
-        <div class="glass-panel p-4 flex flex-col justify-between snap-start shrink-0 w-[85%] sm:w-[48%] md:w-auto">
+        <!-- Feedback 1 -->
+        <div class="snap-card-item glass-panel p-4 flex flex-col justify-between">
           <div class="rounded-xl overflow-hidden aspect-[4/3] mb-3 bg-slate-900">
-            <img data-media-id="feedback-img-1" src="assets/images/feedback-1.jpg" alt="Feedback rèm ô tô khách hàng 1" class="w-full h-full object-cover">
+            <img src="assets/images/feedback-1.jpg" alt="Feedback rèm ô tô khách hàng 1" class="w-full h-full object-cover">
           </div>
           <div class="flex items-center justify-between text-xs text-slate-400">
-            <span class="font-bold text-white">Anh Hải (Hà Nội)</span>
-            <span class="text-amber-400">★★★★★</span>
+            <span class="font-bold text-white">Anh Hải (Hà Nội) • Mazda CX-5</span>
+            <span class="text-amber-400 font-bold">★★★★★</span>
           </div>
           <p class="text-xs text-slate-300 mt-2">"Lắp lên con CX5 vừa khít, hạ kính lấy gió êm ru không hề bung rèm. Đáng đồng tiền bát gạo!"</p>
         </div>
 
-        <div class="glass-panel p-4 flex flex-col justify-between snap-start shrink-0 w-[85%] sm:w-[48%] md:w-auto">
+        <!-- Feedback 2 -->
+        <div class="snap-card-item glass-panel p-4 flex flex-col justify-between">
           <div class="rounded-xl overflow-hidden aspect-[4/3] mb-3 bg-slate-900">
-            <img data-media-id="feedback-img-2" src="assets/images/feedback-2.jpg" alt="Feedback rèm ô tô khách hàng 2" class="w-full h-full object-cover">
+            <img src="assets/images/feedback-2.jpg" alt="Feedback rèm ô tô khách hàng 2" class="w-full h-full object-cover">
           </div>
           <div class="flex items-center justify-between text-xs text-slate-400">
-            <span class="font-bold text-white">Anh Trọng (TP.HCM)</span>
-            <span class="text-amber-400">★★★★★</span>
+            <span class="font-bold text-white">Anh Trọng (TP.HCM) • Toyota Cross</span>
+            <span class="text-amber-400 font-bold">★★★★★</span>
           </div>
           <p class="text-xs text-slate-300 mt-2">"Nhận hàng đúng form xe Toyota Cross, shop gửi kèm hướng dẫn chi tiết nên mình tự dán 15 phút là xong."</p>
         </div>
 
-        <div class="glass-panel p-4 flex flex-col justify-between snap-start shrink-0 w-[85%] sm:w-[48%] md:w-auto">
+        <!-- Feedback 3 -->
+        <div class="snap-card-item glass-panel p-4 flex flex-col justify-between">
           <div class="rounded-xl overflow-hidden aspect-[4/3] mb-3 bg-slate-900">
-            <img data-media-id="feedback-img-3" src="assets/images/feedback-3.jpg" alt="Feedback rèm ô tô khách hàng 3" class="w-full h-full object-cover">
+            <img src="assets/images/feedback-3.jpg" alt="Feedback rèm ô tô khách hàng 3" class="w-full h-full object-cover">
           </div>
           <div class="flex items-center justify-between text-xs text-slate-400">
-            <span class="font-bold text-white">Bác Văn (Đà Nẵng)</span>
-            <span class="text-amber-400">★★★★★</span>
+            <span class="font-bold text-white">Bác Văn (Đà Nẵng) • Honda CR-V</span>
+            <span class="text-amber-400 font-bold">★★★★★</span>
           </div>
           <p class="text-xs text-slate-300 mt-2">"Rèm cửa trước vát góc nhìn gương chiếu hậu rất thoáng, đi đêm không bị tối mắt. Cảm ơn shop!"</p>
         </div>
 
-        <div class="glass-panel p-4 flex flex-col justify-between snap-start shrink-0 w-[85%] sm:w-[48%] md:w-auto">
+        <!-- Feedback 4 -->
+        <div class="snap-card-item glass-panel p-4 flex flex-col justify-between">
           <div class="rounded-xl overflow-hidden aspect-[4/3] mb-3 bg-slate-900">
-            <img data-media-id="feedback-img-4" src="assets/images/feedback-4.jpg" alt="Feedback rèm ô tô khách hàng 4" class="w-full h-full object-cover">
+            <img src="assets/images/feedback-4.jpg" alt="Feedback rèm ô tô khách hàng 4" class="w-full h-full object-cover">
           </div>
           <div class="flex items-center justify-between text-xs text-slate-400">
-            <span class="font-bold text-white">Anh Nghĩa (Bình Dương)</span>
-            <span class="text-amber-400">★★★★★</span>
+            <span class="font-bold text-white">Anh Nghĩa (Bình Dương) • Kia Seltos</span>
+            <span class="text-amber-400 font-bold">★★★★★</span>
           </div>
           <p class="text-xs text-slate-300 mt-2">"Con nhỏ ngồi sau đi trời trưa nắng không còn khóc ré vì chói mắt nữa. Nhiệt độ khoang sau mát hơn hẳn."</p>
         </div>
 
-        <div class="glass-panel p-4 flex flex-col justify-between snap-start shrink-0 w-[85%] sm:w-[48%] md:w-auto">
+        <!-- Feedback 5 -->
+        <div class="snap-card-item glass-panel p-4 flex flex-col justify-between">
           <div class="rounded-xl overflow-hidden aspect-[4/3] mb-3 bg-slate-900">
-            <img data-media-id="feedback-img-5" src="assets/images/feedback-5.jpg" alt="Feedback rèm ô tô khách hàng 5" class="w-full h-full object-cover">
+            <img src="assets/images/feedback-5.jpg" alt="Feedback rèm ô tô khách hàng 5" class="w-full h-full object-cover">
           </div>
           <div class="flex items-center justify-between text-xs text-slate-400">
-            <span class="font-bold text-white">Anh Phúc (Hải Phòng)</span>
-            <span class="text-amber-400">★★★★★</span>
+            <span class="font-bold text-white">Anh Phúc (Hải Phòng) • Ford Everest</span>
+            <span class="text-amber-400 font-bold">★★★★★</span>
           </div>
           <p class="text-xs text-slate-300 mt-2">"Shop đóng gói cẩn thận, cho kiểm tra hàng kỹ trước khi trả tiền. Dịch vụ rất uy tín."</p>
         </div>
 
-        <div class="glass-panel p-4 flex flex-col justify-between snap-start shrink-0 w-[85%] sm:w-[48%] md:w-auto">
+        <!-- Feedback 6: Shopee -->
+        <div class="snap-card-item glass-panel p-4 flex flex-col justify-between">
           <div class="rounded-xl overflow-hidden aspect-[4/3] mb-3 bg-slate-900">
-            <img data-media-id="feedback-img-6" src="assets/images/feedback-shopee.jpg" alt="Feedback đánh giá Shopee" class="w-full h-full object-cover">
+            <img src="assets/images/feedback-shopee.jpg" alt="Feedback đánh giá Shopee" class="w-full h-full object-cover">
           </div>
           <div class="flex items-center justify-between text-xs text-slate-400">
             <span class="font-bold text-white">Đánh giá sàn Shopee</span>
-            <span class="text-amber-400">5.0 / 5.0</span>
+            <span class="text-amber-400 font-bold">5.0 / 5.0 (3.800+)</span>
           </div>
-          <p class="text-xs text-slate-300 mt-2">Hàng ngàn lượt đánh giá tích cực xác nhận độ bám chắc và cơ chế tự động tiện dụng.</p>
+          <p class="text-xs text-slate-300 mt-2">Hàng ngàn lượt đánh giá tích cực xác nhận độ bám chắc và cơ chế tự động tiện dụng chuẩn kích thước.</p>
         </div>
 
       </div>
@@ -946,21 +977,21 @@
   </section>
 
   <!-- FORM ĐẶT HÀNG TỐI ƯU CRO (CHỐT ĐƠN) -->
-  <section id="dat-hang" class="py-16 md:py-24 relative overflow-hidden">
+  <section id="dat-hang" class="py-14 sm:py-20 md:py-24 relative overflow-hidden">
     <div class="max-w-4xl mx-auto px-4 relative z-10">
       
-      <div class="glass-panel p-8 sm:p-12 border-blue-500/30 bg-gradient-to-b from-slate-900/90 to-brandCard shadow-2xl">
-        <div class="text-center max-w-xl mx-auto mb-8">
-          <span class="bg-blue-600/20 text-blue-400 text-xs font-extrabold px-3 py-1 rounded-full border border-blue-500/30 uppercase tracking-wider">
+      <div class="glass-panel p-6 sm:p-10 md:p-12 border-blue-500/40 bg-gradient-to-b from-slate-900/95 to-brandCard shadow-2xl">
+        <div class="text-center max-w-xl mx-auto mb-7 sm:mb-9">
+          <span class="bg-blue-600/20 text-blue-400 text-xs font-black px-3 py-1 rounded-full border border-blue-500/30 uppercase tracking-wider">
             Nhận Ưu Đãi Ngay Hôm Nay
           </span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-heading mt-3">ĐẶT HÀNG RÈM SOSO. AUTO</h2>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-heading mt-2.5">ĐẶT HÀNG RÈM SOSO. AUTO</h2>
           <p class="text-slate-300 text-xs sm:text-sm mt-2">
             Không cần thanh toán trước! Quý khách được <strong>kiểm tra hàng chuẩn kích thước xe</strong> trước khi thanh toán cho nhân viên giao hàng.
           </p>
         </div>
 
-        <form id="soso-order-form" class="space-y-5">
+        <form id="soso-order-form" class="space-y-4 sm:space-y-5">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             
             <!-- Họ và tên -->
@@ -973,7 +1004,7 @@
                 id="customer-name" 
                 required 
                 placeholder="Ví dụ: Nguyễn Văn A" 
-                class="w-full bg-slate-950/80 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all">
+                class="w-full bg-slate-950/90 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 transition-all">
             </div>
 
             <!-- Số điện thoại -->
@@ -983,10 +1014,12 @@
               </label>
               <input 
                 type="tel" 
+                inputmode="tel"
+                autocomplete="tel"
                 id="customer-phone" 
                 required 
                 placeholder="Ví dụ: 0912 345 678" 
-                class="w-full bg-slate-950/80 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all">
+                class="w-full bg-slate-950/90 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 transition-all">
             </div>
 
           </div>
@@ -1003,7 +1036,7 @@
                 id="customer-car" 
                 required 
                 placeholder="Ví dụ: Mazda CX5 2023, Cross 2024..." 
-                class="w-full bg-slate-950/80 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all">
+                class="w-full bg-slate-950/90 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 transition-all">
             </div>
 
             <!-- Chọn gói rèm -->
@@ -1013,7 +1046,7 @@
               </label>
               <select 
                 id="order-package" 
-                class="w-full bg-slate-950/80 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-xl px-4 py-3 text-sm text-white outline-none transition-all">
+                class="w-full bg-slate-950/90 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white transition-all cursor-pointer">
                 <option value="full" selected>Bộ Full 4 Rèm (1.220.000đ) - Freeship + Giảm 10% bộ sau</option>
                 <option value="front">Cặp 2 Rèm Cửa Trước (629.000đ)</option>
                 <option value="rear">Cặp 2 Rèm Cửa Sau (669.000đ)</option>
@@ -1032,7 +1065,7 @@
               id="customer-address" 
               required 
               placeholder="Số nhà, tên đường, phường/xã, quận/huyện, tỉnh/thành phố" 
-              class="w-full bg-slate-950/80 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all">
+              class="w-full bg-slate-950/90 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 transition-all">
           </div>
 
           <!-- Ghi chú thêm -->
@@ -1043,21 +1076,21 @@
             <input 
               type="text" 
               id="customer-note" 
-              placeholder="Yêu cầu giờ giao hàng, tư vấn thêm..." 
-              class="w-full bg-slate-950/80 border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-all">
+              placeholder="Yêu cầu giờ giao hàng, cần tư vấn thêm..." 
+              class="w-full bg-slate-950/90 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 transition-all">
           </div>
 
           <!-- Submit Button -->
           <div class="pt-2">
             <button 
               type="submit" 
-              class="btn-primary-glow w-full py-4 rounded-xl text-white font-extrabold text-base tracking-wide uppercase flex items-center justify-center gap-2 shadow-2xl">
-              <i class="ph ph-paper-plane-tilt text-xl"></i>
+              class="btn-primary-glow w-full py-4 rounded-xl text-white font-black text-sm sm:text-base tracking-wide uppercase flex items-center justify-center gap-2 shadow-2xl">
+              <i class="ph ph-paper-plane-tilt text-lg sm:text-xl"></i>
               <span>XÁC NHẬN GỬI ĐƠN HÀNG NGAY</span>
             </button>
-            <p class="text-center text-xs text-slate-400 mt-3 flex items-center justify-center gap-1.5">
+            <p class="text-center text-[11px] sm:text-xs text-slate-400 mt-2.5 flex items-center justify-center gap-1.5">
               <i class="ph ph-lock-key text-emerald-400"></i>
-              <span>Thông tin của bạn được bảo mật tuyệt đối. Nhân viên sẽ liên hệ lại xác nhận size trước khi gửi.</span>
+              <span>Thông tin được bảo mật tuyệt đối. Nhân viên sẽ liên hệ lại xác nhận size trước khi gửi.</span>
             </p>
           </div>
         </form>
@@ -1068,48 +1101,48 @@
   </section>
 
   <!-- FAQ (CÂU HỎI THƯỜNG GẶP) -->
-  <section id="faq-section" class="py-16 bg-slate-950 border-t border-slate-800">
+  <section id="faq-section" class="py-14 sm:py-20 bg-slate-950 border-t border-slate-800">
     <div class="max-w-4xl mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-heading" data-editable="true">Câu Hỏi Thường Gặp</h2>
-        <p class="text-slate-400 text-xs sm:text-sm mt-1" data-editable="true">Giải đáp các băn khoăn phổ biến trước khi mua rèm</p>
+      <div class="text-center mb-10 sm:mb-12">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-heading">Câu Hỏi Thường Gặp</h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-1">Giải đáp các băn khoăn phổ biến trước khi mua rèm</p>
       </div>
 
-      <div class="space-y-4 text-sm">
-        <details class="glass-panel p-5 rounded-xl cursor-pointer group">
+      <div class="space-y-3.5 text-sm">
+        <details class="glass-panel p-4 sm:p-5 rounded-xl cursor-pointer group">
           <summary class="font-bold text-white flex items-center justify-between list-none">
-            <span>Rèm có làm xước kính hoặc ảnh hưởng đến gioăng cao su của xe không?</span>
-            <i class="ph ph-caret-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+            <span class="text-xs sm:text-sm">Rèm có làm xước kính hoặc ảnh hưởng đến gioăng cao su của xe không?</span>
+            <i class="ph ph-caret-down text-slate-400 faq-chevron transition-transform"></i>
           </summary>
           <p class="text-slate-300 mt-3 text-xs sm:text-sm leading-relaxed border-t border-slate-800 pt-3">
             Hoàn toàn không. Ngàm kẹp của rèm được thiết kế bằng kim loại bo tròn phủ lớp đệm mềm, kẹp chặt vào mép kính mà không cọ xát vào mặt kính hoặc làm rách gioăng cao su. Kính vẫn nâng hạ êm ái bình thường.
           </p>
         </details>
 
-        <details class="glass-panel p-5 rounded-xl cursor-pointer group">
+        <details class="glass-panel p-4 sm:p-5 rounded-xl cursor-pointer group">
           <summary class="font-bold text-white flex items-center justify-between list-none">
-            <span>Xe tôi có tapli cửa uốn cong (như Tucson, Cross, Santafe) thì dán có chắc không?</span>
-            <i class="ph ph-caret-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+            <span class="text-xs sm:text-sm">Xe tôi có tapli cửa uốn cong (như Tucson, Cross, Santafe) thì dán có chắc không?</span>
+            <i class="ph ph-caret-down text-slate-400 faq-chevron transition-transform"></i>
           </summary>
           <p class="text-slate-300 mt-3 text-xs sm:text-sm leading-relaxed border-t border-slate-800 pt-3">
             SOSO AUTO có bộ giải pháp độc quyền dành riêng cho xe có bệ tapli uốn lượn: kèm theo 2 đế chân tăng chỉnh 3M và dải decal đồng màu để che kín hoàn toàn khe sáng. Khi lắp đặt đúng hướng dẫn, rèm sẽ dính chặt và phẳng đẹp như zin.
           </p>
         </details>
 
-        <details class="glass-panel p-5 rounded-xl cursor-pointer group">
+        <details class="glass-panel p-4 sm:p-5 rounded-xl cursor-pointer group">
           <summary class="font-bold text-white flex items-center justify-between list-none">
-            <span>Sau này muốn tháo rèm ra có làm hỏng lớp da tapli xe không?</span>
-            <i class="ph ph-caret-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+            <span class="text-xs sm:text-sm">Sau này muốn tháo rèm ra có làm hỏng lớp da tapli xe không?</span>
+            <i class="ph ph-caret-down text-slate-400 faq-chevron transition-transform"></i>
           </summary>
           <p class="text-slate-300 mt-3 text-xs sm:text-sm leading-relaxed border-t border-slate-800 pt-3">
             Băng keo chuyên dụng 3M có thể tháo bỏ dễ dàng bằng cách dùng máy sấy tóc làm ấm nhẹ hoặc dùng sợi chỉ mảnh kéo dọc đáy thanh rèm. Sau đó dùng cồn lau sạch vết keo thừa mà không để lại vết xước hay bong tróc tapli.
           </p>
         </details>
 
-        <details class="glass-panel p-5 rounded-xl cursor-pointer group">
+        <details class="glass-panel p-4 sm:p-5 rounded-xl cursor-pointer group">
           <summary class="font-bold text-white flex items-center justify-between list-none">
-            <span>Chính sách nhận hàng và kiểm tra như thế nào?</span>
-            <i class="ph ph-caret-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+            <span class="text-xs sm:text-sm">Chính sách nhận hàng và kiểm tra như thế nào?</span>
+            <i class="ph ph-caret-down text-slate-400 faq-chevron transition-transform"></i>
           </summary>
           <p class="text-slate-300 mt-3 text-xs sm:text-sm leading-relaxed border-t border-slate-800 pt-3">
             Bạn được mở hộp kiểm tra đầy đủ phụ kiện, ướm thử thanh rèm vào cửa xe chuẩn kích thước mới thanh toán tiền cho shipper. Nếu không vừa xe, shop sẽ hỗ trợ đổi size ngay lập tức.
@@ -1120,12 +1153,12 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="border-t border-slate-800/80 bg-slate-950 py-10 text-xs text-slate-500">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-9 text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left">
       <div>
-        <span class="text-lg font-black text-white font-heading" data-bind="brandName">SOSO<span class="text-blue-500">.</span>AUTO</span>
+        <span class="text-base sm:text-lg font-black text-white font-heading">SOSO<span class="text-blue-500">.</span>AUTO</span>
         <p class="text-slate-400 mt-1">Đơn vị chuyên cung cấp rèm che nắng ô tô tự động chuẩn form theo xe tại Việt Nam.</p>
-        <p class="text-slate-400 mt-0.5">Hotline / Zalo hỗ trợ: <strong class="text-blue-400" data-bind="hotline">0967.103.928</strong></p>
+        <p class="text-slate-400 mt-0.5">Hotline / Zalo hỗ trợ: <strong class="text-blue-400">0967.103.928</strong></p>
       </div>
 
       <div class="space-y-1">
@@ -1135,15 +1168,15 @@
     </div>
   </footer>
 
-  <!-- FLOATING CALL & ZALO BUTTONS (DESKTOP + MOBILE) -->
-  <div class="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 flex flex-col gap-3 z-50">
+  <!-- FLOATING CONTACT BUTTONS (CLEANLY ABOVE STICKY BAR ON MOBILE) -->
+  <div class="floating-contact-group">
     <!-- Zalo Button -->
     <a 
       href="https://zalo.me/0967103928" 
       target="_blank" 
-      class="floating-btn bg-blue-600 text-white hover:bg-blue-500 shadow-blue-500/30"
+      class="floating-btn bg-blue-600 text-white hover:bg-blue-500 shadow-blue-500/40"
       title="Chat qua Zalo">
-      <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
         <path d="M12 2C6.477 2 2 6.145 2 11.259c0 2.912 1.455 5.516 3.734 7.155l-.946 3.486 3.82-1.897c1.047.332 2.18.516 3.392.516 5.523 0 10-4.145 10-9.26S17.523 2 12 2zm1.096 12.355h-2.31v-4.11h2.31v4.11zm3.852 0h-2.31v-6.17h2.31v6.17zm-7.704 0H6.934v-2.05h2.31v2.05z"/>
       </svg>
     </a>
@@ -1151,17 +1184,23 @@
     <!-- Phone Call Button -->
     <a 
       href="tel:0967103928" 
-      class="floating-btn bg-emerald-500 text-white hover:bg-emerald-400 shadow-emerald-500/30 pulse-ring"
+      class="floating-btn bg-emerald-500 text-white hover:bg-emerald-400 shadow-emerald-500/40 pulse-ring"
       title="Gọi Hotline tư vấn">
-      <i class="ph ph-phone-call text-2xl font-bold"></i>
+      <i class="ph ph-phone-call text-xl font-bold"></i>
     </a>
   </div>
 
-  <!-- STICKY MOBILE BAR (CRO OPTIMIZED FOR PHONES) -->
+  <!-- CONSOLIDATED SLEEK MOBILE STICKY ACTION BAR (CRO OPTIMIZED) -->
   <div class="mobile-sticky-bar">
     <div class="flex flex-col">
-      <span class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Ưu đãi hôm nay</span>
-      <span class="text-amber-400 font-extrabold text-base leading-none">Combo <span data-bind="fullPrice">1.220.000đ</span> <span class="text-[10px] text-emerald-400 font-semibold">(Freeship)</span></span>
+      <div class="flex items-center gap-1">
+        <span class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Full 4 rèm</span>
+        <span class="bg-emerald-500/20 text-emerald-400 text-[9px] font-extrabold px-1.5 py-0.2 rounded border border-emerald-500/30">Freeship</span>
+      </div>
+      <div class="flex items-baseline gap-1.5">
+        <span class="text-amber-400 font-black text-sm leading-tight">1.220.000đ</span>
+        <span class="text-[10px] text-slate-500 line-through">1.650K</span>
+      </div>
     </div>
     <div class="flex items-center gap-2">
       <a href="tel:0967103928" class="w-10 h-10 rounded-xl bg-slate-800 text-emerald-400 border border-slate-700 flex items-center justify-center shrink-0" aria-label="Gọi điện thoại">
@@ -1177,30 +1216,6 @@
     </div>
   </div>
 
-  <!-- MOBILE APP-LIKE BOTTOM NAV (Giao diện chuẩn App) -->
-  <nav class="mobile-bottom-nav">
-    <a href="#" class="mobile-nav-item active">
-      <i class="ph ph-house"></i>
-      <span>Trang chủ</span>
-    </a>
-    <a href="#video-thuc-te" class="mobile-nav-item">
-      <i class="ph ph-play-circle"></i>
-      <span>Video</span>
-    </a>
-    <a href="#dong-xe" class="mobile-nav-item">
-      <i class="ph ph-car"></i>
-      <span>Dòng xe</span>
-    </a>
-    <a href="#bang-gia" class="mobile-nav-item">
-      <i class="ph ph-tag"></i>
-      <span>Giá & Khuyến mãi</span>
-    </a>
-    <button type="button" class="open-quick-order-btn mobile-nav-item text-amber-400 font-bold focus:outline-none">
-      <i class="ph ph-shopping-bag-open text-amber-400 animate-bounce"></i>
-      <span class="text-amber-300">Đặt hàng</span>
-    </button>
-  </nav>
-
   <!-- MOBILE QUICK ORDER BOTTOM SHEET (DRAWER TRƯỢT LÊN TỪ DƯỚI) -->
   <div id="quick-order-backdrop" class="bottom-sheet-backdrop"></div>
   <div id="quick-order-sheet" class="bottom-sheet">
@@ -1208,9 +1223,9 @@
     
     <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
       <div>
-        <h3 class="text-lg font-black text-white font-heading flex items-center gap-2">
+        <h3 class="text-base sm:text-lg font-black text-white font-heading flex items-center gap-2">
           <span>Đặt Hàng Nhanh SOSO AUTO</span>
-          <span class="text-[10px] bg-amber-500 text-slate-950 font-extrabold px-2 py-0.5 rounded-full">Freeship</span>
+          <span class="text-[9px] bg-amber-500 text-slate-950 font-black px-2 py-0.5 rounded-full uppercase">Freeship</span>
         </h3>
         <p class="text-[11px] text-slate-400 mt-0.5">Không cần cọc • Kiểm tra chuẩn form mới thanh toán</p>
       </div>
@@ -1227,25 +1242,25 @@
         <div class="grid grid-cols-3 gap-2 text-center text-xs">
           <label class="cursor-pointer">
             <input type="radio" name="mobile-pkg" value="full" checked class="peer sr-only">
-            <div class="p-2.5 rounded-xl border border-slate-700 bg-slate-900 peer-checked:border-blue-500 peer-checked:bg-blue-950/60 peer-checked:text-white transition-all">
-              <span class="block font-bold text-amber-400">Combo 4 rèm</span>
-              <span class="block text-[11px] text-slate-300" data-bind="fullPrice">1.220.000đ</span>
+            <div class="p-2 sm:p-2.5 rounded-xl border border-slate-700 bg-slate-900 peer-checked:border-blue-500 peer-checked:bg-blue-950/60 peer-checked:text-white transition-all">
+              <span class="block font-bold text-amber-400 text-xs">Combo 4 rèm</span>
+              <span class="block text-[11px] text-slate-300">1.220.000đ</span>
               <span class="block text-[9px] text-emerald-400 font-semibold">Freeship</span>
             </div>
           </label>
           <label class="cursor-pointer">
             <input type="radio" name="mobile-pkg" value="front" class="peer sr-only">
-            <div class="p-2.5 rounded-xl border border-slate-700 bg-slate-900 peer-checked:border-blue-500 peer-checked:bg-blue-950/60 peer-checked:text-white transition-all">
-              <span class="block font-bold text-slate-200">2 Rèm Trước</span>
-              <span class="block text-[11px] text-slate-300" data-bind="frontPrice">629.000đ</span>
+            <div class="p-2 sm:p-2.5 rounded-xl border border-slate-700 bg-slate-900 peer-checked:border-blue-500 peer-checked:bg-blue-950/60 peer-checked:text-white transition-all">
+              <span class="block font-bold text-slate-200 text-xs">2 Rèm Trước</span>
+              <span class="block text-[11px] text-slate-300">629.000đ</span>
               <span class="block text-[9px] text-slate-400">Vát gương</span>
             </div>
           </label>
           <label class="cursor-pointer">
             <input type="radio" name="mobile-pkg" value="rear" class="peer sr-only">
-            <div class="p-2.5 rounded-xl border border-slate-700 bg-slate-900 peer-checked:border-blue-500 peer-checked:bg-blue-950/60 peer-checked:text-white transition-all">
-              <span class="block font-bold text-slate-200">2 Rèm Sau</span>
-              <span class="block text-[11px] text-slate-300" data-bind="rearPrice">669.000đ</span>
+            <div class="p-2 sm:p-2.5 rounded-xl border border-slate-700 bg-slate-900 peer-checked:border-blue-500 peer-checked:bg-blue-950/60 peer-checked:text-white transition-all">
+              <span class="block font-bold text-slate-200 text-xs">2 Rèm Sau</span>
+              <span class="block text-[11px] text-slate-300">669.000đ</span>
               <span class="block text-[9px] text-slate-400">Kín 100%</span>
             </div>
           </label>
@@ -1261,16 +1276,18 @@
             id="sheet-name" 
             required 
             placeholder="Tên của bạn" 
-            class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white outline-none focus:border-blue-500">
+            class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white">
         </div>
         <div>
           <label for="sheet-phone" class="block text-[11px] font-bold text-slate-300 uppercase mb-1">Số điện thoại *</label>
           <input 
             type="tel" 
+            inputmode="tel"
+            autocomplete="tel"
             id="sheet-phone" 
             required 
             placeholder="09xx xxx xxx" 
-            class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white outline-none focus:border-blue-500">
+            class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white">
         </div>
       </div>
 
@@ -1282,7 +1299,7 @@
           id="sheet-car" 
           required 
           placeholder="Ví dụ: Mazda CX5 2023, Cross 2024..." 
-          class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white outline-none focus:border-blue-500">
+          class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white">
       </div>
 
       <!-- Địa chỉ -->
@@ -1293,14 +1310,14 @@
           id="sheet-address" 
           required 
           placeholder="Số nhà, đường, phường/xã, tỉnh/thành..." 
-          class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white outline-none focus:border-blue-500">
+          class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white">
       </div>
 
       <!-- Submit button -->
       <button 
         type="submit" 
-        class="btn-primary-glow w-full py-3.5 rounded-xl text-white font-extrabold text-sm uppercase flex items-center justify-center gap-2 shadow-xl mt-2">
-        <i class="ph ph-check-circle text-lg"></i>
+        class="btn-primary-glow w-full py-3.5 rounded-xl text-white font-black text-xs sm:text-sm uppercase flex items-center justify-center gap-2 shadow-xl mt-2">
+        <i class="ph ph-check-circle text-base sm:text-lg"></i>
         <span>XÁC NHẬN ĐẶT HÀNG NGAY</span>
       </button>
 
@@ -1321,14 +1338,14 @@
 
   <!-- ORDER SUCCESS MODAL -->
   <div id="order-success-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
-    <div class="glass-panel p-6 sm:p-8 max-w-md w-full bg-[#111726] border-blue-500/50 shadow-2xl text-center space-y-4">
-      <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-3xl border border-emerald-500/40">
+    <div class="glass-panel p-6 sm:p-8 max-w-md w-full bg-[#0E1526] border-blue-500/50 shadow-2xl text-center space-y-4">
+      <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-3xl border border-emerald-500/40">
         <i class="ph ph-check-circle-fill"></i>
       </div>
 
-      <h3 class="text-xl font-extrabold text-white font-heading">ĐẶT HÀNG THÀNH CÔNG!</h3>
+      <h3 class="text-lg sm:text-xl font-black text-white font-heading">ĐẶT HÀNG THÀNH CÔNG!</h3>
       <p class="text-xs text-slate-300">
-        Cảm ơn bạn đã tin tưởng <strong>SOSO. AUTO</strong>. Chuyên viên sẽ gọi điện xác nhận lại chính xác đời xe của bạn trước khi gửi hàng.
+        Cảm ơn bạn đã tin tưởng <strong>SOSO. AUTO</strong>. Kỹ thuật viên sẽ gọi điện xác nhận lại chính xác đời xe của bạn trước khi đóng gói gửi đi.
       </p>
 
       <div id="modal-summary-details"></div>
@@ -1340,7 +1357,7 @@
           target="_blank"
           class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all">
           <i class="ph ph-chat-circle-dots text-base"></i>
-          <span>Nhắn Zalo Ngay Để Được Xử Lý Nhanh</span>
+          <span>Nhắn Zalo Ngay Để Xử Lý Nhanh</span>
         </a>
         <button 
           id="close-modal-btn" 
@@ -1353,7 +1370,7 @@
   </div>
 
   <!-- SOCIAL PROOF TOAST NOTIFICATION -->
-  <div id="purchase-toast" class="fixed bottom-28 sm:bottom-6 left-4 right-4 sm:right-auto max-w-sm bg-slate-900/95 backdrop-blur-md border border-slate-700 p-3 rounded-xl shadow-2xl z-40 transform translate-y-28 opacity-0 transition-all duration-500 flex items-center gap-3">
+  <div id="purchase-toast" class="fixed bottom-24 sm:bottom-6 left-4 right-4 sm:right-auto max-w-sm bg-slate-900/95 backdrop-blur-md border border-slate-700 p-3 rounded-xl shadow-2xl z-40 transform translate-y-28 opacity-0 transition-all duration-500 flex items-center gap-3">
     <div class="w-9 h-9 rounded-full bg-blue-600/30 text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/30">
       <i class="ph ph-shopping-cart-simple text-lg"></i>
     </div>
@@ -1365,7 +1382,5 @@
 
   <!-- App Script -->
   <script src="assets/js/app.js"></script>
-  <!-- Editor Engine Script -->
-  <script src="assets/js/editor.js"></script>
 </body>
 </html>
